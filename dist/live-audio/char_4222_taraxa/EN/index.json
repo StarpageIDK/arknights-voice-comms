@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4222_taraxa",
+  "hash": "cc1c16323669f182e676120534fa66e3",
+  "bundle": "audio/sound_beta_2/voice_en/char_4222_taraxa.ab",
+  "clips": {
+    "026": {
+      "path": "live-audio/char_4222_taraxa/EN/026.mp3",
+      "duration": 3.81551
+    },
+    "003": {
+      "path": "live-audio/char_4222_taraxa/EN/003.mp3",
+      "duration": 25.635964
+    },
+    "028": {
+      "path": "live-audio/char_4222_taraxa/EN/028.mp3",
+      "duration": 5.251678
+    },
+    "007": {
+      "path": "live-audio/char_4222_taraxa/EN/007.mp3",
+      "duration": 17.632268
+    },
+    "021": {
+      "path": "live-audio/char_4222_taraxa/EN/021.mp3",
+      "duration": 1.457302
+    },
+    "004": {
+      "path": "live-audio/char_4222_taraxa/EN/004.mp3",
+      "duration": 22.241451
+    },
+    "019": {
+      "path": "live-audio/char_4222_taraxa/EN/019.mp3",
+      "duration": 2.097868
+    },
+    "002": {
+      "path": "live-audio/char_4222_taraxa/EN/002.mp3",
+      "duration": 30.443175
+    },
+    "022": {
+      "path": "live-audio/char_4222_taraxa/EN/022.mp3",
+      "duration": 1.630091
+    },
+    "027": {
+      "path": "live-audio/char_4222_taraxa/EN/027.mp3",
+      "duration": 4.081746
+    },
+    "023": {
+      "path": "live-audio/char_4222_taraxa/EN/023.mp3",
+      "duration": 3.297574
+    },
+    "024": {
+      "path": "live-audio/char_4222_taraxa/EN/024.mp3",
+      "duration": 4.028503
+    },
+    "037": {
+      "path": "live-audio/char_4222_taraxa/EN/037.mp3",
+      "duration": 0.755034
+    },
+    "018": {
+      "path": "live-audio/char_4222_taraxa/EN/018.mp3",
+      "duration": 4.109138
+    },
+    "009": {
+      "path": "live-audio/char_4222_taraxa/EN/009.mp3",
+      "duration": 24.530612
+    },
+    "025": {
+      "path": "live-audio/char_4222_taraxa/EN/025.mp3",
+      "duration": 5.149955
+    },
+    "017": {
+      "path": "live-audio/char_4222_taraxa/EN/017.mp3",
+      "duration": 5.052381
+    },
+    "008": {
+      "path": "live-audio/char_4222_taraxa/EN/008.mp3",
+      "duration": 20.775692
+    },
+    "020": {
+      "path": "live-audio/char_4222_taraxa/EN/020.mp3",
+      "duration": 5.84712
+    }
+  }
+}

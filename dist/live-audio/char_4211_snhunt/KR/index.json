@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4211_snhunt",
+  "hash": "9c20ee132224c2892fffd18d74f7448c",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4211_snhunt.ab",
+  "clips": {
+    "003": {
+      "path": "live-audio/char_4211_snhunt/KR/003.mp3",
+      "duration": 44.77254
+    },
+    "004": {
+      "path": "live-audio/char_4211_snhunt/KR/004.mp3",
+      "duration": 32.967596
+    },
+    "021": {
+      "path": "live-audio/char_4211_snhunt/KR/021.mp3",
+      "duration": 1.336961
+    },
+    "007": {
+      "path": "live-audio/char_4211_snhunt/KR/007.mp3",
+      "duration": 28.687438
+    },
+    "028": {
+      "path": "live-audio/char_4211_snhunt/KR/028.mp3",
+      "duration": 1.974603
+    },
+    "023": {
+      "path": "live-audio/char_4211_snhunt/KR/023.mp3",
+      "duration": 1.452517
+    },
+    "024": {
+      "path": "live-audio/char_4211_snhunt/KR/024.mp3",
+      "duration": 1.603878
+    },
+    "018": {
+      "path": "live-audio/char_4211_snhunt/KR/018.mp3",
+      "duration": 3.825578
+    },
+    "017": {
+      "path": "live-audio/char_4211_snhunt/KR/017.mp3",
+      "duration": 2.395057
+    },
+    "026": {
+      "path": "live-audio/char_4211_snhunt/KR/026.mp3",
+      "duration": 5.921791
+    },
+    "008": {
+      "path": "live-audio/char_4211_snhunt/KR/008.mp3",
+      "duration": 36.572494
+    },
+    "037": {
+      "path": "live-audio/char_4211_snhunt/KR/037.mp3",
+      "duration": 1.143469
+    },
+    "009": {
+      "path": "live-audio/char_4211_snhunt/KR/009.mp3",
+      "duration": 18.395397
+    },
+    "020": {
+      "path": "live-audio/char_4211_snhunt/KR/020.mp3",
+      "duration": 3.999683
+    },
+    "019": {
+      "path": "live-audio/char_4211_snhunt/KR/019.mp3",
+      "duration": 3.476848
+    },
+    "027": {
+      "path": "live-audio/char_4211_snhunt/KR/027.mp3",
+      "duration": 2.564626
+    },
+    "022": {
+      "path": "live-audio/char_4211_snhunt/KR/022.mp3",
+      "duration": 1.528095
+    },
+    "025": {
+      "path": "live-audio/char_4211_snhunt/KR/025.mp3",
+      "duration": 3.9678
+    },
+    "002": {
+      "path": "live-audio/char_4211_snhunt/KR/002.mp3",
+      "duration": 29.050091
+    }
+  }
+}

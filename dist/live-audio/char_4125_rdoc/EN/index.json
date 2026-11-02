@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4125_rdoc",
+  "hash": "99d58a0b0d750c1c18048b663e739268",
+  "bundle": "audio/sound_beta_2/voice_en/char_4125_rdoc.ab",
+  "clips": {
+    "008": {
+      "path": "live-audio/char_4125_rdoc/EN/008.mp3",
+      "duration": 3.43873
+    },
+    "037": {
+      "path": "live-audio/char_4125_rdoc/EN/037.mp3",
+      "duration": 1.001338
+    },
+    "023": {
+      "path": "live-audio/char_4125_rdoc/EN/023.mp3",
+      "duration": 1.406735
+    },
+    "025": {
+      "path": "live-audio/char_4125_rdoc/EN/025.mp3",
+      "duration": 1.188073
+    },
+    "007": {
+      "path": "live-audio/char_4125_rdoc/EN/007.mp3",
+      "duration": 3.886531
+    },
+    "019": {
+      "path": "live-audio/char_4125_rdoc/EN/019.mp3",
+      "duration": 1.7
+    },
+    "022": {
+      "path": "live-audio/char_4125_rdoc/EN/022.mp3",
+      "duration": 1.022721
+    },
+    "018": {
+      "path": "live-audio/char_4125_rdoc/EN/018.mp3",
+      "duration": 1.294671
+    },
+    "028": {
+      "path": "live-audio/char_4125_rdoc/EN/028.mp3",
+      "duration": 0.750726
+    },
+    "021": {
+      "path": "live-audio/char_4125_rdoc/EN/021.mp3",
+      "duration": 0.766576
+    },
+    "002": {
+      "path": "live-audio/char_4125_rdoc/EN/002.mp3",
+      "duration": 5.390726
+    },
+    "003": {
+      "path": "live-audio/char_4125_rdoc/EN/003.mp3",
+      "duration": 6.257937
+    },
+    "017": {
+      "path": "live-audio/char_4125_rdoc/EN/017.mp3",
+      "duration": 1.251995
+    },
+    "009": {
+      "path": "live-audio/char_4125_rdoc/EN/009.mp3",
+      "duration": 2.356054
+    },
+    "024": {
+      "path": "live-audio/char_4125_rdoc/EN/024.mp3",
+      "duration": 1.603991
+    },
+    "020": {
+      "path": "live-audio/char_4125_rdoc/EN/020.mp3",
+      "duration": 2.041406
+    },
+    "026": {
+      "path": "live-audio/char_4125_rdoc/EN/026.mp3",
+      "duration": 1.070816
+    },
+    "004": {
+      "path": "live-audio/char_4125_rdoc/EN/004.mp3",
+      "duration": 3.969841
+    },
+    "027": {
+      "path": "live-audio/char_4125_rdoc/EN/027.mp3",
+      "duration": 1.136463
+    }
+  }
+}

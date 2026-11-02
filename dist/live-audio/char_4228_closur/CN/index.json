@@ -1,0 +1,84 @@
+{
+  "language": "CN",
+  "operator": "char_4228_closur",
+  "hash": "4ada1459376d984c73ed33e118cd17bf",
+  "bundle": "audio/sound_beta_2/voice_cn/char_4228_closur.ab",
+  "clips": {
+    "017": {
+      "path": "live-audio/char_4228_closur/CN/017.mp3",
+      "duration": 4.805828
+    },
+    "025": {
+      "path": "live-audio/char_4228_closur/CN/025.mp3",
+      "duration": 3.949025
+    },
+    "024": {
+      "path": "live-audio/char_4228_closur/CN/024.mp3",
+      "duration": 4.279705
+    },
+    "002": {
+      "path": "live-audio/char_4228_closur/CN/002.mp3",
+      "duration": 15.022698
+    },
+    "019": {
+      "path": "live-audio/char_4228_closur/CN/019.mp3",
+      "duration": 3.695918
+    },
+    "018": {
+      "path": "live-audio/char_4228_closur/CN/018.mp3",
+      "duration": 8.269637
+    },
+    "023": {
+      "path": "live-audio/char_4228_closur/CN/023.mp3",
+      "duration": 2.420091
+    },
+    "026": {
+      "path": "live-audio/char_4228_closur/CN/026.mp3",
+      "duration": 3.257052
+    },
+    "037": {
+      "path": "live-audio/char_4228_closur/CN/037.mp3",
+      "duration": 0.863107
+    },
+    "008": {
+      "path": "live-audio/char_4228_closur/CN/008.mp3",
+      "duration": 20.137211
+    },
+    "004": {
+      "path": "live-audio/char_4228_closur/CN/004.mp3",
+      "duration": 15.132336
+    },
+    "003": {
+      "path": "live-audio/char_4228_closur/CN/003.mp3",
+      "duration": 15.816621
+    },
+    "009": {
+      "path": "live-audio/char_4228_closur/CN/009.mp3",
+      "duration": 19.273469
+    },
+    "007": {
+      "path": "live-audio/char_4228_closur/CN/007.mp3",
+      "duration": 23.798821
+    },
+    "020": {
+      "path": "live-audio/char_4228_closur/CN/020.mp3",
+      "duration": 3.475351
+    },
+    "027": {
+      "path": "live-audio/char_4228_closur/CN/027.mp3",
+      "duration": 5.277891
+    },
+    "028": {
+      "path": "live-audio/char_4228_closur/CN/028.mp3",
+      "duration": 5.451451
+    },
+    "021": {
+      "path": "live-audio/char_4228_closur/CN/021.mp3",
+      "duration": 4.331565
+    },
+    "022": {
+      "path": "live-audio/char_4228_closur/CN/022.mp3",
+      "duration": 4.12356
+    }
+  }
+}

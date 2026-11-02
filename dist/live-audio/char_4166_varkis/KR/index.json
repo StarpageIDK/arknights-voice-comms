@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4166_varkis",
+  "hash": "5af19080c202063c2ba0f35bd37b968d",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4166_varkis.ab",
+  "clips": {
+    "021": {
+      "path": "live-audio/char_4166_varkis/KR/021.mp3",
+      "duration": 0.441814
+    },
+    "026": {
+      "path": "live-audio/char_4166_varkis/KR/026.mp3",
+      "duration": 3.085624
+    },
+    "002": {
+      "path": "live-audio/char_4166_varkis/KR/002.mp3",
+      "duration": 20.633311
+    },
+    "007": {
+      "path": "live-audio/char_4166_varkis/KR/007.mp3",
+      "duration": 24.902222
+    },
+    "028": {
+      "path": "live-audio/char_4166_varkis/KR/028.mp3",
+      "duration": 2.706576
+    },
+    "019": {
+      "path": "live-audio/char_4166_varkis/KR/019.mp3",
+      "duration": 1.128617
+    },
+    "037": {
+      "path": "live-audio/char_4166_varkis/KR/037.mp3",
+      "duration": 1.102358
+    },
+    "023": {
+      "path": "live-audio/char_4166_varkis/KR/023.mp3",
+      "duration": 1.431633
+    },
+    "020": {
+      "path": "live-audio/char_4166_varkis/KR/020.mp3",
+      "duration": 0.684875
+    },
+    "018": {
+      "path": "live-audio/char_4166_varkis/KR/018.mp3",
+      "duration": 1.048435
+    },
+    "024": {
+      "path": "live-audio/char_4166_varkis/KR/024.mp3",
+      "duration": 1.535034
+    },
+    "009": {
+      "path": "live-audio/char_4166_varkis/KR/009.mp3",
+      "duration": 20.464966
+    },
+    "008": {
+      "path": "live-audio/char_4166_varkis/KR/008.mp3",
+      "duration": 21.001111
+    },
+    "004": {
+      "path": "live-audio/char_4166_varkis/KR/004.mp3",
+      "duration": 25.269206
+    },
+    "025": {
+      "path": "live-audio/char_4166_varkis/KR/025.mp3",
+      "duration": 3.460522
+    },
+    "003": {
+      "path": "live-audio/char_4166_varkis/KR/003.mp3",
+      "duration": 24.25746
+    },
+    "027": {
+      "path": "live-audio/char_4166_varkis/KR/027.mp3",
+      "duration": 2.933401
+    },
+    "017": {
+      "path": "live-audio/char_4166_varkis/KR/017.mp3",
+      "duration": 0.696689
+    },
+    "022": {
+      "path": "live-audio/char_4166_varkis/KR/022.mp3",
+      "duration": 0.657823
+    }
+  }
+}

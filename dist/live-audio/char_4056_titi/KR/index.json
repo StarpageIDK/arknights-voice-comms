@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4056_titi",
+  "hash": "29adcdb343147e3a42b1e04cdf7abec7",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4056_titi.ab",
+  "clips": {
+    "028": {
+      "path": "live-audio/char_4056_titi/KR/028.mp3",
+      "duration": 6.9778
+    },
+    "027": {
+      "path": "live-audio/char_4056_titi/KR/027.mp3",
+      "duration": 4.282676
+    },
+    "026": {
+      "path": "live-audio/char_4056_titi/KR/026.mp3",
+      "duration": 3.477256
+    },
+    "023": {
+      "path": "live-audio/char_4056_titi/KR/023.mp3",
+      "duration": 1.81542
+    },
+    "007": {
+      "path": "live-audio/char_4056_titi/KR/007.mp3",
+      "duration": 23.280249
+    },
+    "018": {
+      "path": "live-audio/char_4056_titi/KR/018.mp3",
+      "duration": 14.479932
+    },
+    "004": {
+      "path": "live-audio/char_4056_titi/KR/004.mp3",
+      "duration": 22.824444
+    },
+    "037": {
+      "path": "live-audio/char_4056_titi/KR/037.mp3",
+      "duration": 1.066122
+    },
+    "021": {
+      "path": "live-audio/char_4056_titi/KR/021.mp3",
+      "duration": 4.029342
+    },
+    "020": {
+      "path": "live-audio/char_4056_titi/KR/020.mp3",
+      "duration": 2.86356
+    },
+    "009": {
+      "path": "live-audio/char_4056_titi/KR/009.mp3",
+      "duration": 28.345238
+    },
+    "022": {
+      "path": "live-audio/char_4056_titi/KR/022.mp3",
+      "duration": 1.44898
+    },
+    "024": {
+      "path": "live-audio/char_4056_titi/KR/024.mp3",
+      "duration": 1.094195
+    },
+    "003": {
+      "path": "live-audio/char_4056_titi/KR/003.mp3",
+      "duration": 24.309524
+    },
+    "002": {
+      "path": "live-audio/char_4056_titi/KR/002.mp3",
+      "duration": 18.013991
+    },
+    "017": {
+      "path": "live-audio/char_4056_titi/KR/017.mp3",
+      "duration": 3.445941
+    },
+    "008": {
+      "path": "live-audio/char_4056_titi/KR/008.mp3",
+      "duration": 21.853696
+    },
+    "019": {
+      "path": "live-audio/char_4056_titi/KR/019.mp3",
+      "duration": 5.1678
+    },
+    "025": {
+      "path": "live-audio/char_4056_titi/KR/025.mp3",
+      "duration": 4.507846
+    }
+  }
+}

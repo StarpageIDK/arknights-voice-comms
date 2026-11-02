@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4226_veen",
+  "hash": "cdf041ecbba243672aafec4c70fe9df6",
+  "bundle": "audio/sound_beta_2/voice_en/char_4226_veen.ab",
+  "clips": {
+    "008": {
+      "path": "live-audio/char_4226_veen/EN/008.mp3",
+      "duration": 25.138299
+    },
+    "004": {
+      "path": "live-audio/char_4226_veen/EN/004.mp3",
+      "duration": 23.497143
+    },
+    "025": {
+      "path": "live-audio/char_4226_veen/EN/025.mp3",
+      "duration": 2.32229
+    },
+    "021": {
+      "path": "live-audio/char_4226_veen/EN/021.mp3",
+      "duration": 2.930181
+    },
+    "024": {
+      "path": "live-audio/char_4226_veen/EN/024.mp3",
+      "duration": 0.967937
+    },
+    "026": {
+      "path": "live-audio/char_4226_veen/EN/026.mp3",
+      "duration": 2.078571
+    },
+    "027": {
+      "path": "live-audio/char_4226_veen/EN/027.mp3",
+      "duration": 2.001202
+    },
+    "019": {
+      "path": "live-audio/char_4226_veen/EN/019.mp3",
+      "duration": 3.579841
+    },
+    "003": {
+      "path": "live-audio/char_4226_veen/EN/003.mp3",
+      "duration": 21.595034
+    },
+    "020": {
+      "path": "live-audio/char_4226_veen/EN/020.mp3",
+      "duration": 0.929184
+    },
+    "002": {
+      "path": "live-audio/char_4226_veen/EN/002.mp3",
+      "duration": 26.258957
+    },
+    "023": {
+      "path": "live-audio/char_4226_veen/EN/023.mp3",
+      "duration": 1.50644
+    },
+    "028": {
+      "path": "live-audio/char_4226_veen/EN/028.mp3",
+      "duration": 1.807574
+    },
+    "009": {
+      "path": "live-audio/char_4226_veen/EN/009.mp3",
+      "duration": 21.373515
+    },
+    "017": {
+      "path": "live-audio/char_4226_veen/EN/017.mp3",
+      "duration": 1.31678
+    },
+    "037": {
+      "path": "live-audio/char_4226_veen/EN/037.mp3",
+      "duration": 1.051565
+    },
+    "018": {
+      "path": "live-audio/char_4226_veen/EN/018.mp3",
+      "duration": 2.180249
+    },
+    "022": {
+      "path": "live-audio/char_4226_veen/EN/022.mp3",
+      "duration": 0.949864
+    },
+    "007": {
+      "path": "live-audio/char_4226_veen/EN/007.mp3",
+      "duration": 21.633673
+    }
+  }
+}

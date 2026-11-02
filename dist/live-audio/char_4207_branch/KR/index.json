@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4207_branch",
+  "hash": "13499da0422f5305b99dbd051c4ea76d",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4207_branch.ab",
+  "clips": {
+    "008": {
+      "path": "live-audio/char_4207_branch/KR/008.mp3",
+      "duration": 59.896735
+    },
+    "024": {
+      "path": "live-audio/char_4207_branch/KR/024.mp3",
+      "duration": 4.278005
+    },
+    "027": {
+      "path": "live-audio/char_4207_branch/KR/027.mp3",
+      "duration": 3.634082
+    },
+    "021": {
+      "path": "live-audio/char_4207_branch/KR/021.mp3",
+      "duration": 3.063651
+    },
+    "025": {
+      "path": "live-audio/char_4207_branch/KR/025.mp3",
+      "duration": 10.654308
+    },
+    "018": {
+      "path": "live-audio/char_4207_branch/KR/018.mp3",
+      "duration": 3.114104
+    },
+    "017": {
+      "path": "live-audio/char_4207_branch/KR/017.mp3",
+      "duration": 2.527959
+    },
+    "003": {
+      "path": "live-audio/char_4207_branch/KR/003.mp3",
+      "duration": 39.393719
+    },
+    "028": {
+      "path": "live-audio/char_4207_branch/KR/028.mp3",
+      "duration": 2.56254
+    },
+    "023": {
+      "path": "live-audio/char_4207_branch/KR/023.mp3",
+      "duration": 1.758413
+    },
+    "002": {
+      "path": "live-audio/char_4207_branch/KR/002.mp3",
+      "duration": 37.611247
+    },
+    "022": {
+      "path": "live-audio/char_4207_branch/KR/022.mp3",
+      "duration": 3.102948
+    },
+    "037": {
+      "path": "live-audio/char_4207_branch/KR/037.mp3",
+      "duration": 1.713129
+    },
+    "009": {
+      "path": "live-audio/char_4207_branch/KR/009.mp3",
+      "duration": 44.448617
+    },
+    "004": {
+      "path": "live-audio/char_4207_branch/KR/004.mp3",
+      "duration": 35.367755
+    },
+    "019": {
+      "path": "live-audio/char_4207_branch/KR/019.mp3",
+      "duration": 5.183401
+    },
+    "007": {
+      "path": "live-audio/char_4207_branch/KR/007.mp3",
+      "duration": 47.498912
+    },
+    "026": {
+      "path": "live-audio/char_4207_branch/KR/026.mp3",
+      "duration": 9.591927
+    },
+    "020": {
+      "path": "live-audio/char_4207_branch/KR/020.mp3",
+      "duration": 1.730385
+    }
+  }
+}

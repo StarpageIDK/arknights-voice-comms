@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4056_titi",
+  "hash": "939cdbf727904899b918e5f55bcfa446",
+  "bundle": "audio/sound_beta_2/voice_en/char_4056_titi.ab",
+  "clips": {
+    "002": {
+      "path": "live-audio/char_4056_titi/EN/002.mp3",
+      "duration": 20.340431
+    },
+    "023": {
+      "path": "live-audio/char_4056_titi/EN/023.mp3",
+      "duration": 2.971134
+    },
+    "019": {
+      "path": "live-audio/char_4056_titi/EN/019.mp3",
+      "duration": 4.863401
+    },
+    "017": {
+      "path": "live-audio/char_4056_titi/EN/017.mp3",
+      "duration": 3.962789
+    },
+    "028": {
+      "path": "live-audio/char_4056_titi/EN/028.mp3",
+      "duration": 5.687392
+    },
+    "026": {
+      "path": "live-audio/char_4056_titi/EN/026.mp3",
+      "duration": 3.808073
+    },
+    "022": {
+      "path": "live-audio/char_4056_titi/EN/022.mp3",
+      "duration": 2.248073
+    },
+    "004": {
+      "path": "live-audio/char_4056_titi/EN/004.mp3",
+      "duration": 21.361202
+    },
+    "020": {
+      "path": "live-audio/char_4056_titi/EN/020.mp3",
+      "duration": 4.40161
+    },
+    "008": {
+      "path": "live-audio/char_4056_titi/EN/008.mp3",
+      "duration": 19.159025
+    },
+    "021": {
+      "path": "live-audio/char_4056_titi/EN/021.mp3",
+      "duration": 5.948299
+    },
+    "025": {
+      "path": "live-audio/char_4056_titi/EN/025.mp3",
+      "duration": 4.434739
+    },
+    "007": {
+      "path": "live-audio/char_4056_titi/EN/007.mp3",
+      "duration": 23.975828
+    },
+    "003": {
+      "path": "live-audio/char_4056_titi/EN/003.mp3",
+      "duration": 24.148231
+    },
+    "024": {
+      "path": "live-audio/char_4056_titi/EN/024.mp3",
+      "duration": 1.99932
+    },
+    "009": {
+      "path": "live-audio/char_4056_titi/EN/009.mp3",
+      "duration": 26.927778
+    },
+    "027": {
+      "path": "live-audio/char_4056_titi/EN/027.mp3",
+      "duration": 4.927959
+    },
+    "037": {
+      "path": "live-audio/char_4056_titi/EN/037.mp3",
+      "duration": 0.784739
+    },
+    "018": {
+      "path": "live-audio/char_4056_titi/EN/018.mp3",
+      "duration": 10.755102
+    }
+  }
+}

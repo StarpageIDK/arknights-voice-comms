@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_2027_wang",
+  "hash": "8a26f59a23639e5257a8109338403d4a",
+  "bundle": "audio/sound_beta_2/voice_en/char_2027_wang.ab",
+  "clips": {
+    "026": {
+      "path": "live-audio/char_2027_wang/EN/026.mp3",
+      "duration": 3.455147
+    },
+    "017": {
+      "path": "live-audio/char_2027_wang/EN/017.mp3",
+      "duration": 7.353719
+    },
+    "027": {
+      "path": "live-audio/char_2027_wang/EN/027.mp3",
+      "duration": 4.928798
+    },
+    "021": {
+      "path": "live-audio/char_2027_wang/EN/021.mp3",
+      "duration": 4.111315
+    },
+    "037": {
+      "path": "live-audio/char_2027_wang/EN/037.mp3",
+      "duration": 1.002313
+    },
+    "020": {
+      "path": "live-audio/char_2027_wang/EN/020.mp3",
+      "duration": 2.747483
+    },
+    "022": {
+      "path": "live-audio/char_2027_wang/EN/022.mp3",
+      "duration": 4.195918
+    },
+    "008": {
+      "path": "live-audio/char_2027_wang/EN/008.mp3",
+      "duration": 25.070023
+    },
+    "024": {
+      "path": "live-audio/char_2027_wang/EN/024.mp3",
+      "duration": 2.835714
+    },
+    "007": {
+      "path": "live-audio/char_2027_wang/EN/007.mp3",
+      "duration": 29.922834
+    },
+    "028": {
+      "path": "live-audio/char_2027_wang/EN/028.mp3",
+      "duration": 2.709728
+    },
+    "004": {
+      "path": "live-audio/char_2027_wang/EN/004.mp3",
+      "duration": 21.754717
+    },
+    "002": {
+      "path": "live-audio/char_2027_wang/EN/002.mp3",
+      "duration": 20.949546
+    },
+    "025": {
+      "path": "live-audio/char_2027_wang/EN/025.mp3",
+      "duration": 5.035079
+    },
+    "018": {
+      "path": "live-audio/char_2027_wang/EN/018.mp3",
+      "duration": 3.505125
+    },
+    "023": {
+      "path": "live-audio/char_2027_wang/EN/023.mp3",
+      "duration": 6.029728
+    },
+    "003": {
+      "path": "live-audio/char_2027_wang/EN/003.mp3",
+      "duration": 34.837778
+    },
+    "019": {
+      "path": "live-audio/char_2027_wang/EN/019.mp3",
+      "duration": 5.107052
+    },
+    "009": {
+      "path": "live-audio/char_2027_wang/EN/009.mp3",
+      "duration": 29.014853
+    }
+  }
+}

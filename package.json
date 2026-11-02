@@ -1,6 +1,6 @@
 {
   "name": "arknights-voice-comms",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "description": "An Arknights operator voice guessing game",
@@ -9,7 +9,9 @@
     "build": "node scripts/build.mjs",
     "test": "node --test",
     "check": "node --check src/app.js && node --check src/core.js",
-    "verify": "npm run check && npm test && npm run build"
+    "verify": "npm run check && npm test && npm run build",
+    "test:remote": "node scripts/check-remote-audio.mjs",
+    "refresh:content": "python scripts/refresh-sources.py && python scripts/sync-live-audio.py && python scripts/import-roster.py"
   },
   "engines": {
     "node": ">=22"

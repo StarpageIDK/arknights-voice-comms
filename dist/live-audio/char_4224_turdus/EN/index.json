@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4224_turdus",
+  "hash": "e9030df3a373207c35b906e1a65a4fe1",
+  "bundle": "audio/sound_beta_2/voice_en/char_4224_turdus.ab",
+  "clips": {
+    "022": {
+      "path": "live-audio/char_4224_turdus/EN/022.mp3",
+      "duration": 2.304694
+    },
+    "025": {
+      "path": "live-audio/char_4224_turdus/EN/025.mp3",
+      "duration": 5.904739
+    },
+    "019": {
+      "path": "live-audio/char_4224_turdus/EN/019.mp3",
+      "duration": 13.367188
+    },
+    "023": {
+      "path": "live-audio/char_4224_turdus/EN/023.mp3",
+      "duration": 1.378549
+    },
+    "002": {
+      "path": "live-audio/char_4224_turdus/EN/002.mp3",
+      "duration": 17.29517
+    },
+    "008": {
+      "path": "live-audio/char_4224_turdus/EN/008.mp3",
+      "duration": 26.413651
+    },
+    "018": {
+      "path": "live-audio/char_4224_turdus/EN/018.mp3",
+      "duration": 4.166122
+    },
+    "024": {
+      "path": "live-audio/char_4224_turdus/EN/024.mp3",
+      "duration": 1.297007
+    },
+    "007": {
+      "path": "live-audio/char_4224_turdus/EN/007.mp3",
+      "duration": 20.351451
+    },
+    "017": {
+      "path": "live-audio/char_4224_turdus/EN/017.mp3",
+      "duration": 3.935918
+    },
+    "028": {
+      "path": "live-audio/char_4224_turdus/EN/028.mp3",
+      "duration": 4.963039
+    },
+    "003": {
+      "path": "live-audio/char_4224_turdus/EN/003.mp3",
+      "duration": 23.750612
+    },
+    "009": {
+      "path": "live-audio/char_4224_turdus/EN/009.mp3",
+      "duration": 25.889501
+    },
+    "026": {
+      "path": "live-audio/char_4224_turdus/EN/026.mp3",
+      "duration": 5.511293
+    },
+    "037": {
+      "path": "live-audio/char_4224_turdus/EN/037.mp3",
+      "duration": 0.941814
+    },
+    "027": {
+      "path": "live-audio/char_4224_turdus/EN/027.mp3",
+      "duration": 4.41263
+    },
+    "021": {
+      "path": "live-audio/char_4224_turdus/EN/021.mp3",
+      "duration": 2.591814
+    },
+    "020": {
+      "path": "live-audio/char_4224_turdus/EN/020.mp3",
+      "duration": 7.397347
+    },
+    "004": {
+      "path": "live-audio/char_4224_turdus/EN/004.mp3",
+      "duration": 25.706281
+    }
+  }
+}

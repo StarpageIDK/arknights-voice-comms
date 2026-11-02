@@ -23,6 +23,7 @@ createServer(async (req, res) => {
       ".css": "text/css; charset=utf-8",
       ".json": "application/json",
       ".ogg": "audio/ogg",
+      ".mp3": "audio/mpeg",
       ".png": "image/png",
     };
     res.writeHead(200, {

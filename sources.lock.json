@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "repo": "ArknightsAssets/ArknightsGamedata",
+    "commit": "ecca6444cc87b91e2a04d6a3a0c24799e8a68c0e",
+    "updatedAt": "2026-11-01T06:51:23Z"
+  },
+  "archives": {
+    "JP": {
+      "repo": "ThiagoVsky/arknights-voice-jp",
+      "commit": "5fce9aa8fb23a36cadb800ba84249f405c676457",
+      "updatedAt": "2026-09-17T21:44:04Z"
+    },
+    "EN": {
+      "repo": "ThiagoVsky/arknights-voice-en",
+      "commit": "f685f957ac4626396dcd969bbf106710c4e98a74",
+      "updatedAt": "2026-09-17T21:44:13Z"
+    },
+    "CN": {
+      "repo": "ThiagoVsky/arknights-voice-cn",
+      "commit": "b382963936edb843ac8789bc93026e87f10065ba",
+      "updatedAt": "2026-09-17T21:44:08Z"
+    },
+    "KR": {
+      "repo": "ThiagoVsky/arknights-voice-kr",
+      "commit": "26c55719cf85ea1e39f7aa4a4fc3cd79131f60b7",
+      "updatedAt": "2026-09-17T21:44:17Z"
+    }
+  },
+  "live": {
+    "base": "https://ark-us-static-online.yo-star.com/assetbundle/official/Android/assets/26-10-26-10-03-17_824ce7/",
+    "version": "26-10-26-10-03-17_824ce7"
+  }
+}

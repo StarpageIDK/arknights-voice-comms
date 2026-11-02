@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4212_nasti",
+  "hash": "8fe6e57a47a94943bd86078a31867eec",
+  "bundle": "audio/sound_beta_2/voice_en/char_4212_nasti.ab",
+  "clips": {
+    "008": {
+      "path": "live-audio/char_4212_nasti/EN/008.mp3",
+      "duration": 24.590998
+    },
+    "023": {
+      "path": "live-audio/char_4212_nasti/EN/023.mp3",
+      "duration": 3.874739
+    },
+    "018": {
+      "path": "live-audio/char_4212_nasti/EN/018.mp3",
+      "duration": 9.595193
+    },
+    "009": {
+      "path": "live-audio/char_4212_nasti/EN/009.mp3",
+      "duration": 23.826689
+    },
+    "007": {
+      "path": "live-audio/char_4212_nasti/EN/007.mp3",
+      "duration": 24.404376
+    },
+    "003": {
+      "path": "live-audio/char_4212_nasti/EN/003.mp3",
+      "duration": 21.013265
+    },
+    "022": {
+      "path": "live-audio/char_4212_nasti/EN/022.mp3",
+      "duration": 2.807347
+    },
+    "025": {
+      "path": "live-audio/char_4212_nasti/EN/025.mp3",
+      "duration": 3.955692
+    },
+    "002": {
+      "path": "live-audio/char_4212_nasti/EN/002.mp3",
+      "duration": 16.321156
+    },
+    "024": {
+      "path": "live-audio/char_4212_nasti/EN/024.mp3",
+      "duration": 1.29737
+    },
+    "037": {
+      "path": "live-audio/char_4212_nasti/EN/037.mp3",
+      "duration": 0.878141
+    },
+    "017": {
+      "path": "live-audio/char_4212_nasti/EN/017.mp3",
+      "duration": 5.184308
+    },
+    "019": {
+      "path": "live-audio/char_4212_nasti/EN/019.mp3",
+      "duration": 2.651633
+    },
+    "021": {
+      "path": "live-audio/char_4212_nasti/EN/021.mp3",
+      "duration": 2.576961
+    },
+    "028": {
+      "path": "live-audio/char_4212_nasti/EN/028.mp3",
+      "duration": 3.107279
+    },
+    "026": {
+      "path": "live-audio/char_4212_nasti/EN/026.mp3",
+      "duration": 3.975261
+    },
+    "004": {
+      "path": "live-audio/char_4212_nasti/EN/004.mp3",
+      "duration": 21.045193
+    },
+    "027": {
+      "path": "live-audio/char_4212_nasti/EN/027.mp3",
+      "duration": 3.231066
+    },
+    "020": {
+      "path": "live-audio/char_4212_nasti/EN/020.mp3",
+      "duration": 3.006508
+    }
+  }
+}

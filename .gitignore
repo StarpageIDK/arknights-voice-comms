@@ -4,3 +4,5 @@ node_modules/
 coverage/
 *.zip
 scripts/setup-github.py
+__pycache__/
+*.pyc

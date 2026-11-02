@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4204_mantra",
+  "hash": "40b8a576d23eb186bf750595d5014a13",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4204_mantra.ab",
+  "clips": {
+    "007": {
+      "path": "live-audio/char_4204_mantra/KR/007.mp3",
+      "duration": 27.803424
+    },
+    "018": {
+      "path": "live-audio/char_4204_mantra/KR/018.mp3",
+      "duration": 1.009773
+    },
+    "022": {
+      "path": "live-audio/char_4204_mantra/KR/022.mp3",
+      "duration": 1.934853
+    },
+    "008": {
+      "path": "live-audio/char_4204_mantra/KR/008.mp3",
+      "duration": 36.558027
+    },
+    "025": {
+      "path": "live-audio/char_4204_mantra/KR/025.mp3",
+      "duration": 1.374014
+    },
+    "002": {
+      "path": "live-audio/char_4204_mantra/KR/002.mp3",
+      "duration": 27.036327
+    },
+    "037": {
+      "path": "live-audio/char_4204_mantra/KR/037.mp3",
+      "duration": 1.238027
+    },
+    "026": {
+      "path": "live-audio/char_4204_mantra/KR/026.mp3",
+      "duration": 2.532313
+    },
+    "020": {
+      "path": "live-audio/char_4204_mantra/KR/020.mp3",
+      "duration": 2.440227
+    },
+    "021": {
+      "path": "live-audio/char_4204_mantra/KR/021.mp3",
+      "duration": 0.844127
+    },
+    "003": {
+      "path": "live-audio/char_4204_mantra/KR/003.mp3",
+      "duration": 38.603673
+    },
+    "017": {
+      "path": "live-audio/char_4204_mantra/KR/017.mp3",
+      "duration": 0.877438
+    },
+    "009": {
+      "path": "live-audio/char_4204_mantra/KR/009.mp3",
+      "duration": 30.072381
+    },
+    "024": {
+      "path": "live-audio/char_4204_mantra/KR/024.mp3",
+      "duration": 1.911088
+    },
+    "028": {
+      "path": "live-audio/char_4204_mantra/KR/028.mp3",
+      "duration": 1.09102
+    },
+    "019": {
+      "path": "live-audio/char_4204_mantra/KR/019.mp3",
+      "duration": 2.242925
+    },
+    "004": {
+      "path": "live-audio/char_4204_mantra/KR/004.mp3",
+      "duration": 30.033243
+    },
+    "023": {
+      "path": "live-audio/char_4204_mantra/KR/023.mp3",
+      "duration": 0.89644
+    },
+    "027": {
+      "path": "live-audio/char_4204_mantra/KR/027.mp3",
+      "duration": 1.56712
+    }
+  }
+}

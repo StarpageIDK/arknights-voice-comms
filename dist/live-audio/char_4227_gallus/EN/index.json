@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4227_gallus",
+  "hash": "6f19c6ce079484df53f5f61f13fab822",
+  "bundle": "audio/sound_beta_2/voice_en/char_4227_gallus.ab",
+  "clips": {
+    "037": {
+      "path": "live-audio/char_4227_gallus/EN/037.mp3",
+      "duration": 2.67263
+    },
+    "017": {
+      "path": "live-audio/char_4227_gallus/EN/017.mp3",
+      "duration": 5.270181
+    },
+    "023": {
+      "path": "live-audio/char_4227_gallus/EN/023.mp3",
+      "duration": 4.99288
+    },
+    "007": {
+      "path": "live-audio/char_4227_gallus/EN/007.mp3",
+      "duration": 25.887052
+    },
+    "002": {
+      "path": "live-audio/char_4227_gallus/EN/002.mp3",
+      "duration": 26.436984
+    },
+    "027": {
+      "path": "live-audio/char_4227_gallus/EN/027.mp3",
+      "duration": 4.968073
+    },
+    "009": {
+      "path": "live-audio/char_4227_gallus/EN/009.mp3",
+      "duration": 27.792517
+    },
+    "019": {
+      "path": "live-audio/char_4227_gallus/EN/019.mp3",
+      "duration": 2.378209
+    },
+    "021": {
+      "path": "live-audio/char_4227_gallus/EN/021.mp3",
+      "duration": 5.142177
+    },
+    "008": {
+      "path": "live-audio/char_4227_gallus/EN/008.mp3",
+      "duration": 26.902245
+    },
+    "018": {
+      "path": "live-audio/char_4227_gallus/EN/018.mp3",
+      "duration": 9.016032
+    },
+    "003": {
+      "path": "live-audio/char_4227_gallus/EN/003.mp3",
+      "duration": 20.997166
+    },
+    "026": {
+      "path": "live-audio/char_4227_gallus/EN/026.mp3",
+      "duration": 3.799637
+    },
+    "022": {
+      "path": "live-audio/char_4227_gallus/EN/022.mp3",
+      "duration": 3.427596
+    },
+    "028": {
+      "path": "live-audio/char_4227_gallus/EN/028.mp3",
+      "duration": 5.273719
+    },
+    "025": {
+      "path": "live-audio/char_4227_gallus/EN/025.mp3",
+      "duration": 3.799002
+    },
+    "004": {
+      "path": "live-audio/char_4227_gallus/EN/004.mp3",
+      "duration": 28.137506
+    },
+    "024": {
+      "path": "live-audio/char_4227_gallus/EN/024.mp3",
+      "duration": 5.257664
+    },
+    "020": {
+      "path": "live-audio/char_4227_gallus/EN/020.mp3",
+      "duration": 6.409728
+    }
+  }
+}

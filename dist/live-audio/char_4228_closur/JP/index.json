@@ -1,0 +1,84 @@
+{
+  "language": "JP",
+  "operator": "char_4228_closur",
+  "hash": "de9d4bd859b3ca87d597655b5750cb4c",
+  "bundle": "audio/sound_beta_2/voice/char_4228_closur.ab",
+  "clips": {
+    "023": {
+      "path": "live-audio/char_4228_closur/JP/023.mp3",
+      "duration": 3.93102
+    },
+    "003": {
+      "path": "live-audio/char_4228_closur/JP/003.mp3",
+      "duration": 23.280249
+    },
+    "037": {
+      "path": "live-audio/char_4228_closur/JP/037.mp3",
+      "duration": 1.0
+    },
+    "009": {
+      "path": "live-audio/char_4228_closur/JP/009.mp3",
+      "duration": 24.879773
+    },
+    "019": {
+      "path": "live-audio/char_4228_closur/JP/019.mp3",
+      "duration": 4.220113
+    },
+    "007": {
+      "path": "live-audio/char_4228_closur/JP/007.mp3",
+      "duration": 26.358617
+    },
+    "020": {
+      "path": "live-audio/char_4228_closur/JP/020.mp3",
+      "duration": 6.260204
+    },
+    "002": {
+      "path": "live-audio/char_4228_closur/JP/002.mp3",
+      "duration": 20.72
+    },
+    "028": {
+      "path": "live-audio/char_4228_closur/JP/028.mp3",
+      "duration": 5.330748
+    },
+    "018": {
+      "path": "live-audio/char_4228_closur/JP/018.mp3",
+      "duration": 11.3
+    },
+    "008": {
+      "path": "live-audio/char_4228_closur/JP/008.mp3",
+      "duration": 26.25
+    },
+    "022": {
+      "path": "live-audio/char_4228_closur/JP/022.mp3",
+      "duration": 5.12
+    },
+    "027": {
+      "path": "live-audio/char_4228_closur/JP/027.mp3",
+      "duration": 6.280907
+    },
+    "024": {
+      "path": "live-audio/char_4228_closur/JP/024.mp3",
+      "duration": 6.279932
+    },
+    "021": {
+      "path": "live-audio/char_4228_closur/JP/021.mp3",
+      "duration": 6.620431
+    },
+    "025": {
+      "path": "live-audio/char_4228_closur/JP/025.mp3",
+      "duration": 4.130113
+    },
+    "004": {
+      "path": "live-audio/char_4228_closur/JP/004.mp3",
+      "duration": 19.180476
+    },
+    "017": {
+      "path": "live-audio/char_4228_closur/JP/017.mp3",
+      "duration": 7.2
+    },
+    "026": {
+      "path": "live-audio/char_4228_closur/JP/026.mp3",
+      "duration": 3.75
+    }
+  }
+}

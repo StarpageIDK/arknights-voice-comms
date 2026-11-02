@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4208_wintim",
+  "hash": "eac25348f4e6602c657dfc68bb8a5a79",
+  "bundle": "audio/sound_beta_2/voice_en/char_4208_wintim.ab",
+  "clips": {
+    "017": {
+      "path": "live-audio/char_4208_wintim/EN/017.mp3",
+      "duration": 1.610952
+    },
+    "024": {
+      "path": "live-audio/char_4208_wintim/EN/024.mp3",
+      "duration": 1.650544
+    },
+    "019": {
+      "path": "live-audio/char_4208_wintim/EN/019.mp3",
+      "duration": 3.942744
+    },
+    "021": {
+      "path": "live-audio/char_4208_wintim/EN/021.mp3",
+      "duration": 1.653469
+    },
+    "004": {
+      "path": "live-audio/char_4208_wintim/EN/004.mp3",
+      "duration": 24.613265
+    },
+    "028": {
+      "path": "live-audio/char_4208_wintim/EN/028.mp3",
+      "duration": 1.73229
+    },
+    "027": {
+      "path": "live-audio/char_4208_wintim/EN/027.mp3",
+      "duration": 1.936644
+    },
+    "018": {
+      "path": "live-audio/char_4208_wintim/EN/018.mp3",
+      "duration": 3.68288
+    },
+    "008": {
+      "path": "live-audio/char_4208_wintim/EN/008.mp3",
+      "duration": 29.33907
+    },
+    "022": {
+      "path": "live-audio/char_4208_wintim/EN/022.mp3",
+      "duration": 1.755646
+    },
+    "009": {
+      "path": "live-audio/char_4208_wintim/EN/009.mp3",
+      "duration": 23.479478
+    },
+    "026": {
+      "path": "live-audio/char_4208_wintim/EN/026.mp3",
+      "duration": 2.193152
+    },
+    "023": {
+      "path": "live-audio/char_4208_wintim/EN/023.mp3",
+      "duration": 1.313197
+    },
+    "025": {
+      "path": "live-audio/char_4208_wintim/EN/025.mp3",
+      "duration": 1.370023
+    },
+    "003": {
+      "path": "live-audio/char_4208_wintim/EN/003.mp3",
+      "duration": 23.045646
+    },
+    "037": {
+      "path": "live-audio/char_4208_wintim/EN/037.mp3",
+      "duration": 1.169297
+    },
+    "020": {
+      "path": "live-audio/char_4208_wintim/EN/020.mp3",
+      "duration": 3.812109
+    },
+    "007": {
+      "path": "live-audio/char_4208_wintim/EN/007.mp3",
+      "duration": 27.513379
+    },
+    "002": {
+      "path": "live-audio/char_4208_wintim/EN/002.mp3",
+      "duration": 17.748073
+    }
+  }
+}

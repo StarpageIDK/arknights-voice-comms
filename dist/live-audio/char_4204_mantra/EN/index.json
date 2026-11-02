@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4204_mantra",
+  "hash": "f77c10b36eb4519cd632f7b66d3829f3",
+  "bundle": "audio/sound_beta_2/voice_en/char_4204_mantra.ab",
+  "clips": {
+    "009": {
+      "path": "live-audio/char_4204_mantra/EN/009.mp3",
+      "duration": 21.925873
+    },
+    "025": {
+      "path": "live-audio/char_4204_mantra/EN/025.mp3",
+      "duration": 1.672902
+    },
+    "024": {
+      "path": "live-audio/char_4204_mantra/EN/024.mp3",
+      "duration": 2.854286
+    },
+    "021": {
+      "path": "live-audio/char_4204_mantra/EN/021.mp3",
+      "duration": 0.924898
+    },
+    "019": {
+      "path": "live-audio/char_4204_mantra/EN/019.mp3",
+      "duration": 1.374966
+    },
+    "027": {
+      "path": "live-audio/char_4204_mantra/EN/027.mp3",
+      "duration": 2.038798
+    },
+    "023": {
+      "path": "live-audio/char_4204_mantra/EN/023.mp3",
+      "duration": 1.199002
+    },
+    "003": {
+      "path": "live-audio/char_4204_mantra/EN/003.mp3",
+      "duration": 25.255964
+    },
+    "026": {
+      "path": "live-audio/char_4204_mantra/EN/026.mp3",
+      "duration": 3.051247
+    },
+    "008": {
+      "path": "live-audio/char_4204_mantra/EN/008.mp3",
+      "duration": 27.325147
+    },
+    "020": {
+      "path": "live-audio/char_4204_mantra/EN/020.mp3",
+      "duration": 2.260703
+    },
+    "017": {
+      "path": "live-audio/char_4204_mantra/EN/017.mp3",
+      "duration": 0.944444
+    },
+    "007": {
+      "path": "live-audio/char_4204_mantra/EN/007.mp3",
+      "duration": 23.276168
+    },
+    "002": {
+      "path": "live-audio/char_4204_mantra/EN/002.mp3",
+      "duration": 24.774535
+    },
+    "004": {
+      "path": "live-audio/char_4204_mantra/EN/004.mp3",
+      "duration": 21.580476
+    },
+    "018": {
+      "path": "live-audio/char_4204_mantra/EN/018.mp3",
+      "duration": 0.814989
+    },
+    "022": {
+      "path": "live-audio/char_4204_mantra/EN/022.mp3",
+      "duration": 1.715329
+    },
+    "028": {
+      "path": "live-audio/char_4204_mantra/EN/028.mp3",
+      "duration": 1.472426
+    },
+    "037": {
+      "path": "live-audio/char_4204_mantra/EN/037.mp3",
+      "duration": 1.160159
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4213_skybx",
+  "hash": "5b080a78008184f298b420b8159891bf",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4213_skybx.ab",
+  "clips": {
+    "024": {
+      "path": "live-audio/char_4213_skybx/KR/024.mp3",
+      "duration": 3.959206
+    },
+    "009": {
+      "path": "live-audio/char_4213_skybx/KR/009.mp3",
+      "duration": 20.564467
+    },
+    "022": {
+      "path": "live-audio/char_4213_skybx/KR/022.mp3",
+      "duration": 2.266621
+    },
+    "021": {
+      "path": "live-audio/char_4213_skybx/KR/021.mp3",
+      "duration": 3.51483
+    },
+    "003": {
+      "path": "live-audio/char_4213_skybx/KR/003.mp3",
+      "duration": 26.340862
+    },
+    "027": {
+      "path": "live-audio/char_4213_skybx/KR/027.mp3",
+      "duration": 5.667846
+    },
+    "008": {
+      "path": "live-audio/char_4213_skybx/KR/008.mp3",
+      "duration": 25.10585
+    },
+    "019": {
+      "path": "live-audio/char_4213_skybx/KR/019.mp3",
+      "duration": 13.017075
+    },
+    "026": {
+      "path": "live-audio/char_4213_skybx/KR/026.mp3",
+      "duration": 6.962857
+    },
+    "037": {
+      "path": "live-audio/char_4213_skybx/KR/037.mp3",
+      "duration": 1.478458
+    },
+    "025": {
+      "path": "live-audio/char_4213_skybx/KR/025.mp3",
+      "duration": 6.07034
+    },
+    "020": {
+      "path": "live-audio/char_4213_skybx/KR/020.mp3",
+      "duration": 5.220884
+    },
+    "028": {
+      "path": "live-audio/char_4213_skybx/KR/028.mp3",
+      "duration": 5.845556
+    },
+    "023": {
+      "path": "live-audio/char_4213_skybx/KR/023.mp3",
+      "duration": 5.402381
+    },
+    "004": {
+      "path": "live-audio/char_4213_skybx/KR/004.mp3",
+      "duration": 27.268798
+    },
+    "018": {
+      "path": "live-audio/char_4213_skybx/KR/018.mp3",
+      "duration": 8.272744
+    },
+    "017": {
+      "path": "live-audio/char_4213_skybx/KR/017.mp3",
+      "duration": 8.063084
+    },
+    "007": {
+      "path": "live-audio/char_4213_skybx/KR/007.mp3",
+      "duration": 23.866939
+    },
+    "002": {
+      "path": "live-audio/char_4213_skybx/KR/002.mp3",
+      "duration": 29.352426
+    }
+  }
+}

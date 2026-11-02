@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4124_iana",
+  "hash": "65cfcee4ee24f96bab0929c80dc62851",
+  "bundle": "audio/sound_beta_2/voice_en/char_4124_iana.ab",
+  "clips": {
+    "023": {
+      "path": "live-audio/char_4124_iana/EN/023.mp3",
+      "duration": 0.676077
+    },
+    "019": {
+      "path": "live-audio/char_4124_iana/EN/019.mp3",
+      "duration": 2.110658
+    },
+    "037": {
+      "path": "live-audio/char_4124_iana/EN/037.mp3",
+      "duration": 1.001406
+    },
+    "020": {
+      "path": "live-audio/char_4124_iana/EN/020.mp3",
+      "duration": 1.060091
+    },
+    "017": {
+      "path": "live-audio/char_4124_iana/EN/017.mp3",
+      "duration": 3.801406
+    },
+    "003": {
+      "path": "live-audio/char_4124_iana/EN/003.mp3",
+      "duration": 1.422744
+    },
+    "007": {
+      "path": "live-audio/char_4124_iana/EN/007.mp3",
+      "duration": 1.326667
+    },
+    "027": {
+      "path": "live-audio/char_4124_iana/EN/027.mp3",
+      "duration": 0.756508
+    },
+    "008": {
+      "path": "live-audio/char_4124_iana/EN/008.mp3",
+      "duration": 1.44941
+    },
+    "004": {
+      "path": "live-audio/char_4124_iana/EN/004.mp3",
+      "duration": 3.62
+    },
+    "026": {
+      "path": "live-audio/char_4124_iana/EN/026.mp3",
+      "duration": 0.916009
+    },
+    "021": {
+      "path": "live-audio/char_4124_iana/EN/021.mp3",
+      "duration": 1.14542
+    },
+    "018": {
+      "path": "live-audio/char_4124_iana/EN/018.mp3",
+      "duration": 1.540091
+    },
+    "025": {
+      "path": "live-audio/char_4124_iana/EN/025.mp3",
+      "duration": 1.226054
+    },
+    "024": {
+      "path": "live-audio/char_4124_iana/EN/024.mp3",
+      "duration": 1.262744
+    },
+    "002": {
+      "path": "live-audio/char_4124_iana/EN/002.mp3",
+      "duration": 2.869025
+    },
+    "009": {
+      "path": "live-audio/char_4124_iana/EN/009.mp3",
+      "duration": 5.149864
+    },
+    "022": {
+      "path": "live-audio/char_4124_iana/EN/022.mp3",
+      "duration": 1.080635
+    },
+    "028": {
+      "path": "live-audio/char_4124_iana/EN/028.mp3",
+      "duration": 1.609274
+    }
+  }
+}

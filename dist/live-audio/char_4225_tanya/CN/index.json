@@ -1,0 +1,84 @@
+{
+  "language": "CN",
+  "operator": "char_4225_tanya",
+  "hash": "b618fbad9693378214812648317c6b01",
+  "bundle": "audio/sound_beta_2/voice_cn/char_4225_tanya.ab",
+  "clips": {
+    "019": {
+      "path": "live-audio/char_4225_tanya/CN/019.mp3",
+      "duration": 3.222834
+    },
+    "002": {
+      "path": "live-audio/char_4225_tanya/CN/002.mp3",
+      "duration": 22.553787
+    },
+    "026": {
+      "path": "live-audio/char_4225_tanya/CN/026.mp3",
+      "duration": 2.236508
+    },
+    "024": {
+      "path": "live-audio/char_4225_tanya/CN/024.mp3",
+      "duration": 0.650658
+    },
+    "003": {
+      "path": "live-audio/char_4225_tanya/CN/003.mp3",
+      "duration": 22.240454
+    },
+    "023": {
+      "path": "live-audio/char_4225_tanya/CN/023.mp3",
+      "duration": 0.553197
+    },
+    "017": {
+      "path": "live-audio/char_4225_tanya/CN/017.mp3",
+      "duration": 0.567506
+    },
+    "027": {
+      "path": "live-audio/char_4225_tanya/CN/027.mp3",
+      "duration": 4.266054
+    },
+    "018": {
+      "path": "live-audio/char_4225_tanya/CN/018.mp3",
+      "duration": 0.768277
+    },
+    "025": {
+      "path": "live-audio/char_4225_tanya/CN/025.mp3",
+      "duration": 2.577415
+    },
+    "020": {
+      "path": "live-audio/char_4225_tanya/CN/020.mp3",
+      "duration": 4.562744
+    },
+    "007": {
+      "path": "live-audio/char_4225_tanya/CN/007.mp3",
+      "duration": 20.064739
+    },
+    "021": {
+      "path": "live-audio/char_4225_tanya/CN/021.mp3",
+      "duration": 0.618209
+    },
+    "009": {
+      "path": "live-audio/char_4225_tanya/CN/009.mp3",
+      "duration": 25.394694
+    },
+    "004": {
+      "path": "live-audio/char_4225_tanya/CN/004.mp3",
+      "duration": 21.606803
+    },
+    "022": {
+      "path": "live-audio/char_4225_tanya/CN/022.mp3",
+      "duration": 1.664921
+    },
+    "028": {
+      "path": "live-audio/char_4225_tanya/CN/028.mp3",
+      "duration": 3.495351
+    },
+    "037": {
+      "path": "live-audio/char_4225_tanya/CN/037.mp3",
+      "duration": 0.977029
+    },
+    "008": {
+      "path": "live-audio/char_4225_tanya/CN/008.mp3",
+      "duration": 25.510295
+    }
+  }
+}

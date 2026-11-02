@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_394_hadiya",
+  "hash": "1320646a14a7b53a4a54d5ff5bf1147c",
+  "bundle": "audio/sound_beta_2/voice_en/char_394_hadiya.ab",
+  "clips": {
+    "007": {
+      "path": "live-audio/char_394_hadiya/EN/007.mp3",
+      "duration": 12.212902
+    },
+    "027": {
+      "path": "live-audio/char_394_hadiya/EN/027.mp3",
+      "duration": 1.560454
+    },
+    "019": {
+      "path": "live-audio/char_394_hadiya/EN/019.mp3",
+      "duration": 4.352381
+    },
+    "020": {
+      "path": "live-audio/char_394_hadiya/EN/020.mp3",
+      "duration": 2.846621
+    },
+    "008": {
+      "path": "live-audio/char_394_hadiya/EN/008.mp3",
+      "duration": 20.658005
+    },
+    "026": {
+      "path": "live-audio/char_394_hadiya/EN/026.mp3",
+      "duration": 1.432313
+    },
+    "004": {
+      "path": "live-audio/char_394_hadiya/EN/004.mp3",
+      "duration": 12.426939
+    },
+    "017": {
+      "path": "live-audio/char_394_hadiya/EN/017.mp3",
+      "duration": 2.839252
+    },
+    "023": {
+      "path": "live-audio/char_394_hadiya/EN/023.mp3",
+      "duration": 1.732245
+    },
+    "028": {
+      "path": "live-audio/char_394_hadiya/EN/028.mp3",
+      "duration": 0.920771
+    },
+    "037": {
+      "path": "live-audio/char_394_hadiya/EN/037.mp3",
+      "duration": 0.872948
+    },
+    "009": {
+      "path": "live-audio/char_394_hadiya/EN/009.mp3",
+      "duration": 19.734422
+    },
+    "002": {
+      "path": "live-audio/char_394_hadiya/EN/002.mp3",
+      "duration": 13.043583
+    },
+    "003": {
+      "path": "live-audio/char_394_hadiya/EN/003.mp3",
+      "duration": 12.516009
+    },
+    "021": {
+      "path": "live-audio/char_394_hadiya/EN/021.mp3",
+      "duration": 2.329342
+    },
+    "022": {
+      "path": "live-audio/char_394_hadiya/EN/022.mp3",
+      "duration": 2.273719
+    },
+    "024": {
+      "path": "live-audio/char_394_hadiya/EN/024.mp3",
+      "duration": 2.267438
+    },
+    "018": {
+      "path": "live-audio/char_394_hadiya/EN/018.mp3",
+      "duration": 7.253129
+    },
+    "025": {
+      "path": "live-audio/char_394_hadiya/EN/025.mp3",
+      "duration": 1.678934
+    }
+  }
+}

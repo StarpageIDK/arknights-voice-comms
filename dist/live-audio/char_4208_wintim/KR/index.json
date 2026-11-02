@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4208_wintim",
+  "hash": "27f8d5d5fd4712a294bd2cb2b1c6b065",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4208_wintim.ab",
+  "clips": {
+    "007": {
+      "path": "live-audio/char_4208_wintim/KR/007.mp3",
+      "duration": 32.323968
+    },
+    "037": {
+      "path": "live-audio/char_4208_wintim/KR/037.mp3",
+      "duration": 1.12517
+    },
+    "003": {
+      "path": "live-audio/char_4208_wintim/KR/003.mp3",
+      "duration": 19.230907
+    },
+    "021": {
+      "path": "live-audio/char_4208_wintim/KR/021.mp3",
+      "duration": 1.853537
+    },
+    "017": {
+      "path": "live-audio/char_4208_wintim/KR/017.mp3",
+      "duration": 2.880771
+    },
+    "025": {
+      "path": "live-audio/char_4208_wintim/KR/025.mp3",
+      "duration": 1.333878
+    },
+    "022": {
+      "path": "live-audio/char_4208_wintim/KR/022.mp3",
+      "duration": 1.606667
+    },
+    "020": {
+      "path": "live-audio/char_4208_wintim/KR/020.mp3",
+      "duration": 3.580952
+    },
+    "004": {
+      "path": "live-audio/char_4208_wintim/KR/004.mp3",
+      "duration": 19.391859
+    },
+    "023": {
+      "path": "live-audio/char_4208_wintim/KR/023.mp3",
+      "duration": 2.425374
+    },
+    "024": {
+      "path": "live-audio/char_4208_wintim/KR/024.mp3",
+      "duration": 2.423923
+    },
+    "009": {
+      "path": "live-audio/char_4208_wintim/KR/009.mp3",
+      "duration": 31.10034
+    },
+    "008": {
+      "path": "live-audio/char_4208_wintim/KR/008.mp3",
+      "duration": 30.421156
+    },
+    "027": {
+      "path": "live-audio/char_4208_wintim/KR/027.mp3",
+      "duration": 1.563719
+    },
+    "019": {
+      "path": "live-audio/char_4208_wintim/KR/019.mp3",
+      "duration": 5.170794
+    },
+    "018": {
+      "path": "live-audio/char_4208_wintim/KR/018.mp3",
+      "duration": 4.721361
+    },
+    "028": {
+      "path": "live-audio/char_4208_wintim/KR/028.mp3",
+      "duration": 1.300091
+    },
+    "026": {
+      "path": "live-audio/char_4208_wintim/KR/026.mp3",
+      "duration": 1.419728
+    },
+    "002": {
+      "path": "live-audio/char_4208_wintim/KR/002.mp3",
+      "duration": 25.291678
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4223_botany",
+  "hash": "d6079848fa4c0486ea0b56479a553113",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4223_botany.ab",
+  "clips": {
+    "025": {
+      "path": "live-audio/char_4223_botany/KR/025.mp3",
+      "duration": 4.34034
+    },
+    "019": {
+      "path": "live-audio/char_4223_botany/KR/019.mp3",
+      "duration": 3.325034
+    },
+    "024": {
+      "path": "live-audio/char_4223_botany/KR/024.mp3",
+      "duration": 1.908005
+    },
+    "003": {
+      "path": "live-audio/char_4223_botany/KR/003.mp3",
+      "duration": 31.8622
+    },
+    "002": {
+      "path": "live-audio/char_4223_botany/KR/002.mp3",
+      "duration": 34.958186
+    },
+    "028": {
+      "path": "live-audio/char_4223_botany/KR/028.mp3",
+      "duration": 3.49805
+    },
+    "020": {
+      "path": "live-audio/char_4223_botany/KR/020.mp3",
+      "duration": 1.139093
+    },
+    "004": {
+      "path": "live-audio/char_4223_botany/KR/004.mp3",
+      "duration": 38.240068
+    },
+    "023": {
+      "path": "live-audio/char_4223_botany/KR/023.mp3",
+      "duration": 1.960522
+    },
+    "018": {
+      "path": "live-audio/char_4223_botany/KR/018.mp3",
+      "duration": 4.695714
+    },
+    "037": {
+      "path": "live-audio/char_4223_botany/KR/037.mp3",
+      "duration": 1.234263
+    },
+    "027": {
+      "path": "live-audio/char_4223_botany/KR/027.mp3",
+      "duration": 3.383175
+    },
+    "008": {
+      "path": "live-audio/char_4223_botany/KR/008.mp3",
+      "duration": 25.406259
+    },
+    "007": {
+      "path": "live-audio/char_4223_botany/KR/007.mp3",
+      "duration": 23.73356
+    },
+    "017": {
+      "path": "live-audio/char_4223_botany/KR/017.mp3",
+      "duration": 5.046576
+    },
+    "026": {
+      "path": "live-audio/char_4223_botany/KR/026.mp3",
+      "duration": 3.604218
+    },
+    "021": {
+      "path": "live-audio/char_4223_botany/KR/021.mp3",
+      "duration": 0.984762
+    },
+    "022": {
+      "path": "live-audio/char_4223_botany/KR/022.mp3",
+      "duration": 1.177279
+    },
+    "009": {
+      "path": "live-audio/char_4223_botany/KR/009.mp3",
+      "duration": 30.286417
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4031_liesel",
+  "hash": "256e2a0eacaa074aa7770c0322fd2fbe",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4031_liesel.ab",
+  "clips": {
+    "027": {
+      "path": "live-audio/char_4031_liesel/KR/027.mp3",
+      "duration": 3.53551
+    },
+    "002": {
+      "path": "live-audio/char_4031_liesel/KR/002.mp3",
+      "duration": 14.48746
+    },
+    "023": {
+      "path": "live-audio/char_4031_liesel/KR/023.mp3",
+      "duration": 0.980907
+    },
+    "037": {
+      "path": "live-audio/char_4031_liesel/KR/037.mp3",
+      "duration": 1.238549
+    },
+    "022": {
+      "path": "live-audio/char_4031_liesel/KR/022.mp3",
+      "duration": 1.026599
+    },
+    "008": {
+      "path": "live-audio/char_4031_liesel/KR/008.mp3",
+      "duration": 26.229161
+    },
+    "026": {
+      "path": "live-audio/char_4031_liesel/KR/026.mp3",
+      "duration": 1.490045
+    },
+    "007": {
+      "path": "live-audio/char_4031_liesel/KR/007.mp3",
+      "duration": 23.002313
+    },
+    "009": {
+      "path": "live-audio/char_4031_liesel/KR/009.mp3",
+      "duration": 36.181043
+    },
+    "004": {
+      "path": "live-audio/char_4031_liesel/KR/004.mp3",
+      "duration": 25.608934
+    },
+    "019": {
+      "path": "live-audio/char_4031_liesel/KR/019.mp3",
+      "duration": 8.618662
+    },
+    "003": {
+      "path": "live-audio/char_4031_liesel/KR/003.mp3",
+      "duration": 22.697937
+    },
+    "018": {
+      "path": "live-audio/char_4031_liesel/KR/018.mp3",
+      "duration": 8.286213
+    },
+    "021": {
+      "path": "live-audio/char_4031_liesel/KR/021.mp3",
+      "duration": 1.25229
+    },
+    "020": {
+      "path": "live-audio/char_4031_liesel/KR/020.mp3",
+      "duration": 3.781043
+    },
+    "017": {
+      "path": "live-audio/char_4031_liesel/KR/017.mp3",
+      "duration": 3.197574
+    },
+    "024": {
+      "path": "live-audio/char_4031_liesel/KR/024.mp3",
+      "duration": 1.540499
+    },
+    "025": {
+      "path": "live-audio/char_4031_liesel/KR/025.mp3",
+      "duration": 1.581746
+    },
+    "028": {
+      "path": "live-audio/char_4031_liesel/KR/028.mp3",
+      "duration": 4.585873
+    }
+  }
+}

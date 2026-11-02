@@ -1,0 +1,84 @@
+{
+  "language": "JP",
+  "operator": "char_4225_tanya",
+  "hash": "69db2e0bb5938f61c72bfede39348a58",
+  "bundle": "audio/sound_beta_2/voice/char_4225_tanya.ab",
+  "clips": {
+    "019": {
+      "path": "live-audio/char_4225_tanya/JP/019.mp3",
+      "duration": 4.27
+    },
+    "004": {
+      "path": "live-audio/char_4225_tanya/JP/004.mp3",
+      "duration": 31.862268
+    },
+    "037": {
+      "path": "live-audio/char_4225_tanya/JP/037.mp3",
+      "duration": 0.85
+    },
+    "027": {
+      "path": "live-audio/char_4225_tanya/JP/027.mp3",
+      "duration": 5.3
+    },
+    "003": {
+      "path": "live-audio/char_4225_tanya/JP/003.mp3",
+      "duration": 27.98
+    },
+    "007": {
+      "path": "live-audio/char_4225_tanya/JP/007.mp3",
+      "duration": 25.09
+    },
+    "002": {
+      "path": "live-audio/char_4225_tanya/JP/002.mp3",
+      "duration": 31.357392
+    },
+    "025": {
+      "path": "live-audio/char_4225_tanya/JP/025.mp3",
+      "duration": 3.26
+    },
+    "008": {
+      "path": "live-audio/char_4225_tanya/JP/008.mp3",
+      "duration": 37.30585
+    },
+    "028": {
+      "path": "live-audio/char_4225_tanya/JP/028.mp3",
+      "duration": 4.42
+    },
+    "021": {
+      "path": "live-audio/char_4225_tanya/JP/021.mp3",
+      "duration": 0.630408
+    },
+    "020": {
+      "path": "live-audio/char_4225_tanya/JP/020.mp3",
+      "duration": 5.022698
+    },
+    "024": {
+      "path": "live-audio/char_4225_tanya/JP/024.mp3",
+      "duration": 0.99
+    },
+    "017": {
+      "path": "live-audio/char_4225_tanya/JP/017.mp3",
+      "duration": 1.225646
+    },
+    "009": {
+      "path": "live-audio/char_4225_tanya/JP/009.mp3",
+      "duration": 36.08
+    },
+    "018": {
+      "path": "live-audio/char_4225_tanya/JP/018.mp3",
+      "duration": 1.015533
+    },
+    "023": {
+      "path": "live-audio/char_4225_tanya/JP/023.mp3",
+      "duration": 0.902449
+    },
+    "022": {
+      "path": "live-audio/char_4225_tanya/JP/022.mp3",
+      "duration": 2.1
+    },
+    "026": {
+      "path": "live-audio/char_4225_tanya/JP/026.mp3",
+      "duration": 3.11
+    }
+  }
+}

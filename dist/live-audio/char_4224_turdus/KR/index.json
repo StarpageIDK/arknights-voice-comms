@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_4224_turdus",
+  "hash": "0cec9ce81b3d5ef5d04393a018d9580b",
+  "bundle": "audio/sound_beta_2/voice_kr/char_4224_turdus.ab",
+  "clips": {
+    "026": {
+      "path": "live-audio/char_4224_turdus/KR/026.mp3",
+      "duration": 5.910249
+    },
+    "003": {
+      "path": "live-audio/char_4224_turdus/KR/003.mp3",
+      "duration": 32.697052
+    },
+    "017": {
+      "path": "live-audio/char_4224_turdus/KR/017.mp3",
+      "duration": 5.914785
+    },
+    "021": {
+      "path": "live-audio/char_4224_turdus/KR/021.mp3",
+      "duration": 3.25932
+    },
+    "002": {
+      "path": "live-audio/char_4224_turdus/KR/002.mp3",
+      "duration": 19.42551
+    },
+    "024": {
+      "path": "live-audio/char_4224_turdus/KR/024.mp3",
+      "duration": 1.430839
+    },
+    "023": {
+      "path": "live-audio/char_4224_turdus/KR/023.mp3",
+      "duration": 1.091202
+    },
+    "037": {
+      "path": "live-audio/char_4224_turdus/KR/037.mp3",
+      "duration": 1.270317
+    },
+    "007": {
+      "path": "live-audio/char_4224_turdus/KR/007.mp3",
+      "duration": 25.980499
+    },
+    "020": {
+      "path": "live-audio/char_4224_turdus/KR/020.mp3",
+      "duration": 9.475624
+    },
+    "022": {
+      "path": "live-audio/char_4224_turdus/KR/022.mp3",
+      "duration": 2.902245
+    },
+    "025": {
+      "path": "live-audio/char_4224_turdus/KR/025.mp3",
+      "duration": 6.502426
+    },
+    "018": {
+      "path": "live-audio/char_4224_turdus/KR/018.mp3",
+      "duration": 4.309252
+    },
+    "008": {
+      "path": "live-audio/char_4224_turdus/KR/008.mp3",
+      "duration": 32.113424
+    },
+    "019": {
+      "path": "live-audio/char_4224_turdus/KR/019.mp3",
+      "duration": 18.406848
+    },
+    "028": {
+      "path": "live-audio/char_4224_turdus/KR/028.mp3",
+      "duration": 5.706372
+    },
+    "027": {
+      "path": "live-audio/char_4224_turdus/KR/027.mp3",
+      "duration": 4.267302
+    },
+    "009": {
+      "path": "live-audio/char_4224_turdus/KR/009.mp3",
+      "duration": 40.318231
+    },
+    "004": {
+      "path": "live-audio/char_4224_turdus/KR/004.mp3",
+      "duration": 32.990816
+    }
+  }
+}

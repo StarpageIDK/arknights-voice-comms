@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_4166_varkis",
+  "hash": "39d667424f0d4ace26e701d1a5447c47",
+  "bundle": "audio/sound_beta_2/voice_en/char_4166_varkis.ab",
+  "clips": {
+    "027": {
+      "path": "live-audio/char_4166_varkis/EN/027.mp3",
+      "duration": 2.816485
+    },
+    "024": {
+      "path": "live-audio/char_4166_varkis/EN/024.mp3",
+      "duration": 1.383605
+    },
+    "018": {
+      "path": "live-audio/char_4166_varkis/EN/018.mp3",
+      "duration": 1.140068
+    },
+    "026": {
+      "path": "live-audio/char_4166_varkis/EN/026.mp3",
+      "duration": 2.366939
+    },
+    "009": {
+      "path": "live-audio/char_4166_varkis/EN/009.mp3",
+      "duration": 18.525556
+    },
+    "021": {
+      "path": "live-audio/char_4166_varkis/EN/021.mp3",
+      "duration": 0.924218
+    },
+    "003": {
+      "path": "live-audio/char_4166_varkis/EN/003.mp3",
+      "duration": 20.160204
+    },
+    "020": {
+      "path": "live-audio/char_4166_varkis/EN/020.mp3",
+      "duration": 0.919342
+    },
+    "022": {
+      "path": "live-audio/char_4166_varkis/EN/022.mp3",
+      "duration": 0.991746
+    },
+    "008": {
+      "path": "live-audio/char_4166_varkis/EN/008.mp3",
+      "duration": 18.582834
+    },
+    "002": {
+      "path": "live-audio/char_4166_varkis/EN/002.mp3",
+      "duration": 19.941451
+    },
+    "019": {
+      "path": "live-audio/char_4166_varkis/EN/019.mp3",
+      "duration": 1.147415
+    },
+    "023": {
+      "path": "live-audio/char_4166_varkis/EN/023.mp3",
+      "duration": 1.432585
+    },
+    "025": {
+      "path": "live-audio/char_4166_varkis/EN/025.mp3",
+      "duration": 3.047007
+    },
+    "007": {
+      "path": "live-audio/char_4166_varkis/EN/007.mp3",
+      "duration": 21.255737
+    },
+    "017": {
+      "path": "live-audio/char_4166_varkis/EN/017.mp3",
+      "duration": 1.057052
+    },
+    "004": {
+      "path": "live-audio/char_4166_varkis/EN/004.mp3",
+      "duration": 23.523537
+    },
+    "037": {
+      "path": "live-audio/char_4166_varkis/EN/037.mp3",
+      "duration": 1.466372
+    },
+    "028": {
+      "path": "live-audio/char_4166_varkis/EN/028.mp3",
+      "duration": 2.169751
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_2027_wang",
+  "hash": "d7d77c9cf625c33d5b629dffca727120",
+  "bundle": "audio/sound_beta_2/voice_kr/char_2027_wang.ab",
+  "clips": {
+    "022": {
+      "path": "live-audio/char_2027_wang/KR/022.mp3",
+      "duration": 4.188367
+    },
+    "026": {
+      "path": "live-audio/char_2027_wang/KR/026.mp3",
+      "duration": 2.579252
+    },
+    "019": {
+      "path": "live-audio/char_2027_wang/KR/019.mp3",
+      "duration": 4.08034
+    },
+    "008": {
+      "path": "live-audio/char_2027_wang/KR/008.mp3",
+      "duration": 26.416984
+    },
+    "027": {
+      "path": "live-audio/char_2027_wang/KR/027.mp3",
+      "duration": 4.743039
+    },
+    "009": {
+      "path": "live-audio/char_2027_wang/KR/009.mp3",
+      "duration": 30.998005
+    },
+    "037": {
+      "path": "live-audio/char_2027_wang/KR/037.mp3",
+      "duration": 1.279252
+    },
+    "004": {
+      "path": "live-audio/char_2027_wang/KR/004.mp3",
+      "duration": 23.004376
+    },
+    "020": {
+      "path": "live-audio/char_2027_wang/KR/020.mp3",
+      "duration": 2.704785
+    },
+    "018": {
+      "path": "live-audio/char_2027_wang/KR/018.mp3",
+      "duration": 3.632268
+    },
+    "028": {
+      "path": "live-audio/char_2027_wang/KR/028.mp3",
+      "duration": 2.130612
+    },
+    "007": {
+      "path": "live-audio/char_2027_wang/KR/007.mp3",
+      "duration": 26.236939
+    },
+    "021": {
+      "path": "live-audio/char_2027_wang/KR/021.mp3",
+      "duration": 2.474172
+    },
+    "003": {
+      "path": "live-audio/char_2027_wang/KR/003.mp3",
+      "duration": 33.964376
+    },
+    "017": {
+      "path": "live-audio/char_2027_wang/KR/017.mp3",
+      "duration": 5.696054
+    },
+    "025": {
+      "path": "live-audio/char_2027_wang/KR/025.mp3",
+      "duration": 5.550159
+    },
+    "002": {
+      "path": "live-audio/char_2027_wang/KR/002.mp3",
+      "duration": 23.574762
+    },
+    "024": {
+      "path": "live-audio/char_2027_wang/KR/024.mp3",
+      "duration": 3.874807
+    },
+    "023": {
+      "path": "live-audio/char_2027_wang/KR/023.mp3",
+      "duration": 5.657075
+    }
+  }
+}
