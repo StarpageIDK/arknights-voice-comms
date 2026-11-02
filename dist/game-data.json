@@ -23879,7 +23879,7 @@
           },
           {
             "id": "009",
-            "duration": 32.0,
+            "duration": 32,
             "durationEstimated": true,
             "kind": "trust"
           }
@@ -34427,7 +34427,7 @@
           },
           {
             "id": "027",
-            "duration": 3.0,
+            "duration": 3,
             "durationEstimated": true,
             "kind": "battle"
           },
@@ -37224,7 +37224,7 @@
         "JP": [
           {
             "id": "037",
-            "duration": 1.0,
+            "duration": 1,
             "durationEstimated": false,
             "kind": "title"
           },
@@ -65678,7 +65678,7 @@
           },
           {
             "id": "019",
-            "duration": 2.0,
+            "duration": 2,
             "durationEstimated": false,
             "kind": "battle"
           },
@@ -65874,7 +65874,7 @@
           },
           {
             "id": "025",
-            "duration": 2.0,
+            "duration": 2,
             "durationEstimated": false,
             "kind": "battle"
           },
@@ -131954,7 +131954,7 @@
           },
           {
             "id": "022",
-            "duration": 6.0,
+            "duration": 6,
             "durationEstimated": true,
             "kind": "battle"
           },
@@ -167332,7 +167332,7 @@
           },
           {
             "id": "020",
-            "duration": 4.0,
+            "duration": 4,
             "durationEstimated": false,
             "kind": "battle"
           },
@@ -174968,7 +174968,7 @@
           },
           {
             "id": "009",
-            "duration": 32.0,
+            "duration": 32,
             "durationEstimated": true,
             "kind": "trust"
           }
@@ -192188,7 +192188,7 @@
           },
           {
             "id": "028",
-            "duration": 3.0,
+            "duration": 3,
             "durationEstimated": false,
             "kind": "battle"
           },
@@ -204389,5 +204389,6 @@
     "available": 380,
     "total": 380
   },
-  "resourceVersion": "26-10-26-10-03-17_824ce7"
+  "resourceVersion": "26-10-26-10-03-17_824ce7",
+  "contentVersion": "52011e8372e4e7bb9b0b0005a9ee94264b0d3de274b3ed9d1db7a1e9a6b29882"
 }

@@ -1,7 +1,17 @@
-import { chooseOperator, chooseLines, recordResult } from "./core.js";
+import {
+  classicMode,
+  createRound,
+  transitionRound,
+  roundResult,
+} from "./game.js";
+import { createStorage, blankStats } from "./storage.js";
+import { createAudioPlayer } from "./audio.js";
 const $ = (id) => document.getElementById(id),
   audio = new Audio(),
-  LIMIT = 5;
+  LIMIT = classicMode.attempts;
+const store = createStorage();
+const { read, save } = store;
+let round;
 let roundLines = [],
   data,
   operator,
@@ -14,94 +24,52 @@ let roundLines = [],
   results = [],
   matches = [],
   active = -1;
-function read(key, fallback) {
-  try {
-    return JSON.parse(localStorage.getItem(key)) || fallback;
-  } catch {
-    return fallback;
-  }
-}
-function save(key, value) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-  } catch {}
-}
 const savedLanguage = read("voiceprint-language", "JP");
 if (["JP", "EN", "CN", "KR"].includes(savedLanguage)) language = savedLanguage;
-const blankStats = () => ({
-  played: 0,
-  won: 0,
-  streak: 0,
-  best: 0,
-  distribution: [0, 0, 0, 0, 0],
-});
-let allStats = read("voiceprint-language-stats", {}),
-  stats = allStats[language] || blankStats(),
-  recent = read("voiceprint-recent", []),
-  clipReady = Promise.resolve(),
-  clipVersion = 0,
+let allStats = store.statistics(),
+  stats = allStats[language],
+  recent = store.recent(),
   seeking = false;
-const clips = new Map();
+const player = createAudioPlayer(audio, {
+  onReady(duration) {
+    $("duration").textContent = timeLabel(duration);
+    $("progress").disabled = false;
+  },
+  onError() {
+    $("audioStatus").textContent =
+      "Unable to play audio. Please press play to retry.";
+  },
+});
 function stop() {
-  audio.pause();
+  player.stop();
   $("play").textContent = "▶";
   $("play").setAttribute("aria-label", "Play voice line");
 }
 function loadClip() {
-  const path = operator.voices[language]?.[roundLines[selected]];
+  const path = operator?.voices[language]?.[roundLines[selected]];
   if (!path) return false;
   if (loaded !== path) {
     stop();
     loaded = path;
-    const version = ++clipVersion;
     $("progress").disabled = true;
     $("progress").value = 0;
     $("elapsed").textContent = "0:00";
     $("duration").textContent = "0:00";
-    if (!clips.has(path))
-      clips.set(
-        path,
-        fetch(path)
-          .then((r) => {
-            if (!r.ok) throw Error("Audio unavailable");
-            return r.blob();
-          })
-          .then((blob) => URL.createObjectURL(blob)),
-      );
-    clipReady = clips.get(path).then(
-      (url) =>
-        new Promise((resolve) => {
-          if (version !== clipVersion) return resolve(false);
-          audio.src = url;
-          audio.onloadedmetadata = () => {
-            if (version === clipVersion) {
-              $("duration").textContent = timeLabel(audio.duration);
-              $("progress").disabled = false;
-            }
-            resolve(version === clipVersion);
-          };
-          audio.load();
-        }),
-    );
-    clipReady.catch(() => {
-      $("audioStatus").textContent = "Audio unavailable. Please reload.";
-    });
   }
+  player.load(path);
   return true;
 }
 async function play() {
   if (!loadClip()) return;
-  try {
-    const version = clipVersion;
-    if (!(await clipReady) || version !== clipVersion) return;
-    await audio.play();
+  if (await player.play(operator.voices[language][roundLines[selected]])) {
     $("play").textContent = "Ⅱ";
     $("play").setAttribute("aria-label", "Pause voice line");
     $("audioStatus").textContent = `Playing voice line ${selected + 1}`;
-  } catch {
-    $("audioStatus").textContent =
-      "Unable to play audio. Please press play to retry.";
   }
+}
+function syncRound() {
+  ({ operator, attempt, hintCount, ended, results } = round);
+  roundLines = round.lines;
 }
 function render() {
   $("counter").textContent = `ATTEMPT ${attempt + 1} / ${LIMIT}`;
@@ -151,22 +119,17 @@ function render() {
     b.disabled = !data.operators.some((o) => o.voices[b.dataset.lang]);
   });
 }
-function choose() {
-  return chooseOperator(data.operators, language, recent);
-}
 function next(autoplay = false) {
   stop();
-  for (const promise of clips.values())
-    promise.then((url) => URL.revokeObjectURL(url)).catch(() => {});
-  clips.clear();
-  operator = choose();
-  roundLines = chooseLines(operator, language);
+  player.clear();
+  round = createRound(data.operators, language, recent, {
+    contentVersion: data.contentVersion,
+  });
+  syncRound();
   recent.push(operator.id);
   recent = recent.slice(-20);
   save("voiceprint-recent", recent);
-  attempt = selected = hintCount = 0;
-  ended = false;
-  results = [];
+  selected = 0;
   loaded = "";
   for (const id of ["message", "history", "hints"]) $(id).replaceChildren();
   $("guess").value = "";
@@ -177,12 +140,13 @@ function next(autoplay = false) {
   if (autoplay) play();
 }
 function finish(won) {
-  if (ended) return;
-  ended = true;
   stop();
-  stats = recordResult(stats, won, attempt);
-  allStats[language] = stats;
-  save("voiceprint-language-stats", allStats);
+  const persisted = store.append(roundResult(round));
+  allStats = store.statistics();
+  stats = allStats[language];
+  if (!persisted)
+    $("audioStatus").textContent =
+      "Result kept for this session; browser storage is unavailable.";
   $("message").className = won ? "success" : "failure";
   $("message").replaceChildren();
   const img = document.createElement("img");
@@ -194,17 +158,21 @@ function finish(won) {
   closeSearch();
   render();
 }
-function advance(label, kind = "failure") {
-  results[attempt] = { label, kind };
+function act(action) {
+  if (!round || ended) return;
+  round = transitionRound(round, action);
+  syncRound();
   stop();
-  if (attempt === LIMIT - 1) finish(false);
+  if (ended) finish(round.won);
   else {
-    attempt++;
     selected = attempt;
     render();
     loadClip();
     play();
   }
+}
+function advance() {
+  act({ type: "skip" });
 }
 function closeSearch() {
   $("suggestions").hidden = true;
@@ -218,6 +186,7 @@ function pick(o) {
   $("guessForm").requestSubmit();
 }
 function search() {
+  if (!data || ended) return;
   if (!$("guess").value.trim()) {
     closeSearch();
     return;
@@ -283,7 +252,7 @@ document.addEventListener("click", (e) => {
 });
 $("guessForm").onsubmit = (e) => {
   e.preventDefault();
-  if (ended) return;
+  if (!data || ended) return;
   const candidate = data.operators.find(
     (o) => o.name.toLowerCase() === $("guess").value.trim().toLowerCase(),
   );
@@ -294,23 +263,15 @@ $("guessForm").onsubmit = (e) => {
   closeSearch();
   $("message").textContent = "";
   $("guess").value = "";
-  if (candidate.id === operator.id) {
-    results[attempt] = {
-      label: candidate.name + " · Correct",
-      kind: "success",
-    };
-    finish(true);
-  } else advance(candidate.name + " · Incorrect");
+  act({ type: "guess", operator: candidate });
 };
 $("play").onclick = () => (audio.paused ? play() : stop());
 audio.onended = stop;
-$("skip").onclick = () => advance("Skipped");
-$("giveup").onclick = () => {
-  results[attempt] = { label: "Gave up", kind: "failure" };
-  finish(false);
-};
+$("skip").onclick = () => advance();
+$("giveup").onclick = () => act({ type: "giveup" });
 $("next").onclick = () => next(true);
 $("hint").onclick = () => {
+  if (!round || ended || hintCount >= round.maxHints) return;
   const groups = [
     [["Rarity", `${operator.rarity}★`]],
     [["Class", operator.class]],
@@ -331,7 +292,8 @@ $("hint").onclick = () => {
     p.append(segment);
   }
   $("hints").append(p);
-  hintCount++;
+  round = transitionRound(round, { type: "hint" });
+  syncRound();
   render();
 };
 for (const [code, name] of Object.entries({
@@ -355,10 +317,11 @@ function changeLanguage(code) {
   next(true);
 }
 function requestLanguage(code) {
-  if (code !== language) changeLanguage(code);
+  if (data && code !== language) changeLanguage(code);
 }
 $("help").onclick = () => $("instructions").showModal();
 function showStatistics(code) {
+  allStats = store.statistics();
   const view = allStats[code] || blankStats();
   $("statisticsTitle").textContent = "Stats";
   $("statsLanguages").replaceChildren();
@@ -436,7 +399,10 @@ $("progress").addEventListener("pointercancel", () => {
   seeking = false;
 });
 fetch("game-data.json")
-  .then((r) => r.json())
+  .then((r) => {
+    if (!r.ok) throw Error("Game data unavailable");
+    return r.json();
+  })
   .then((d) => {
     data = d;
     $("rosterInfo").textContent =
@@ -526,3 +492,9 @@ $("volume").oninput = () => {
   setVolume(value);
   save("voiceprint-volume", value);
 };
+
+window.addEventListener("storage", () => {
+  allStats = store.statistics();
+  stats = allStats[language];
+  if (data) render();
+});

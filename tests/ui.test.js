@@ -3,9 +3,12 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { JSDOM } from "jsdom";
 import * as core from "../src/core.js";
+import * as game from "../src/game.js";
+import * as storage from "../src/storage.js";
+import * as player from "../src/audio.js";
 const html = await readFile("src/index.html", "utf8");
 const source = (await readFile("src/app.js", "utf8")).replace(
-  /^import .*?;\s*/,
+  /import [\s\S]*?;\s*/g,
   "",
 );
 const operators = ["Amiya", "Texas", "Exusiai"].map((name, i) => ({
@@ -41,15 +44,29 @@ const operators = ["Amiya", "Texas", "Exusiai"].map((name, i) => ({
   ),
 }));
 const flush = () => new Promise((r) => setTimeout(r, 25));
-async function setup(storage = {}) {
+async function setup(saved = {}) {
   const dom = new JSDOM(html, {
       url: "https://game.test/",
       runScripts: "outside-only",
     }),
     w = dom.window;
-  Object.assign(w, core);
-  w.chooseOperator = (operators, language, recent) => core.chooseOperator(operators, language, recent, () => .6);
-  w.chooseLines = (operator, language) => core.chooseLines(operator, language, () => .6);
+  Object.assign(w, core, game, storage, player);
+  w.createStorage = () => storage.createStorage(() => w.localStorage);
+  w.createAudioPlayer = (audio, options) =>
+    player.createAudioPlayer(audio, {
+      ...options,
+      fetchAudio: (...args) => w.fetch(...args),
+      urls: w.URL,
+    });
+  w.createRound = (operators, language, recent, options) =>
+    game.createRound(operators, language, recent, {
+      ...options,
+      random: () => 0.6,
+    });
+  w.chooseOperator = (operators, language, recent) =>
+    core.chooseOperator(operators, language, recent, () => 0.6);
+  w.chooseLines = (operator, language) =>
+    core.chooseLines(operator, language, () => 0.6);
   w.structuredClone = structuredClone;
   w.Math.random = () => 0.6;
   w.URL.createObjectURL = () => "blob:audio";
@@ -86,9 +103,9 @@ async function setup(storage = {}) {
   };
   w.fetch = async (url) =>
     String(url).endsWith("game-data.json")
-      ? { json: async () => ({ operators }) }
+      ? { ok: true, json: async () => ({ operators }) }
       : { ok: true, blob: async () => new w.Blob(["audio"]) };
-  for (const [key, value] of Object.entries(storage))
+  for (const [key, value] of Object.entries(saved))
     w.localStorage.setItem(key, JSON.stringify(value));
   w.eval(source);
   await flush();
@@ -152,11 +169,9 @@ test("language changes abandon rounds without losses, persist selection, and iso
   );
   assert.equal(x.w.localStorage.getItem("voiceprint-language-stats"), null);
   x.$("giveup").click();
-  const stats = JSON.parse(
-    x.w.localStorage.getItem("voiceprint-language-stats"),
-  );
+  const stats = storage.createStorage(() => x.w.localStorage).statistics();
   assert.equal(stats.EN.played, 1);
-  assert.equal(stats.JP, undefined);
+  assert.equal(stats.JP.played, 0);
   x.$("showStats").click();
   assert.equal(x.$("statistics").open, true);
   assert.equal(x.$("statsLanguages").children.length, 4);

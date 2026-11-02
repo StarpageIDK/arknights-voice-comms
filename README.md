@@ -81,3 +81,7 @@ Arknights characters, audio and artwork © HYPERGRYPH / Yostar. Unofficial, non-
 - Archive voice source: https://github.com/ThiagoVsky/arknights-voice-jp (and corresponding en/cn/kr repositories)
 - Fresh voices: official Global Arknights CDN; retrieval and decompression use https://github.com/thesadru/ArkPRTS and https://github.com/K0lb3/UnityPy
 - Avatars: https://github.com/yuanyan3060/ArknightsGameResource and https://github.com/ArknightsAssets/ArknightsAssets
+
+## Architecture and future features
+
+See [extension boundaries and account roadmap](docs/architecture.md). Round rules, audio playback and local result storage are separate modules. New results use versioned per-round records; existing local statistics remain a baseline. Registration and a backend are not implemented yet.
