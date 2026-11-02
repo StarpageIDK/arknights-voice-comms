@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>Arknights — Voice Archive</title
+  ><link rel="stylesheet" href="style.css" />
+  <body>
+    <a class="brand" href="./">ARKNIGHTS <span>/ VOICE ARCHIVE</span></a>
+    <main>
+      <header class="panel">
+        <div class="logo">
+          <span class="emblem">◈</span>
+          <div>
+            <h1>WHO’S ON COMMS?</h1>
+            <em>Recognize the voice. Name the operator.</em>
+          </div>
+        </div>
+        <div class="toolbar">
+          <button id="help" title="How to play" aria-label="How to play">
+            ?
+          </button>
+        </div>
+        <div id="languages" aria-label="Voice language"></div>
+        <span class="mode">∞ Free play</span>
+      </header>
+      <section class="panel player">
+        <div class="section-label">
+          01 / LISTEN & IDENTIFY <span>VOICE INTERCEPT</span>
+        </div>
+        <form id="guessForm">
+          <button id="play" type="button" aria-label="Play voice line">
+            ▶
+          </button>
+          <div class="search">
+            <input
+              id="guess"
+              role="combobox"
+              aria-label="Operator name"
+              aria-autocomplete="list"
+              aria-controls="suggestions"
+              aria-expanded="false"
+              placeholder="Type operator name..."
+              autocomplete="off"
+              required
+            />
+            <div id="suggestions" role="listbox" hidden></div>
+          </div>
+          <button id="submit">Submit</button
+          ><button id="skip" type="button">Skip →</button>
+        </form>
+        <input
+          type="range"
+          id="progress"
+          min="0"
+          max="1000"
+          value="0"
+          aria-label="Seek audio"
+        />
+        <div class="playback">
+          <span id="elapsed">0:00</span><span id="counter"></span
+          ><span id="duration">0:00</span>
+        </div>
+        <div class="player-status">
+          <p id="audioStatus" role="status">
+            Attempt 1 always starts with “Arknights”.
+          </p>
+          <div class="player-tools">
+            <label class="volume-control" title="Volume"
+              ><svg
+                viewBox="0 0 24 24"
+                width="17"
+                height="17"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M3 9v6h4l5 4V5L7 9H3zm12-2v2a4 4 0 0 1 0 6v2a6 6 0 0 0 0-10z"
+                /></svg
+              ><input
+                id="volume"
+                type="range"
+                min="0"
+                max="100"
+                value="75"
+                aria-label="Volume"
+              /><output id="volumeValue" for="volume">75%</output></label
+            ><button id="hint" title="Reveal hint" aria-label="Reveal hint">
+              <span aria-hidden="true">💡</span
+              ><span id="hintCount">0/3</span></button
+            ><button id="giveup" title="Give up" aria-label="Give up">
+              <svg
+                viewBox="0 0 24 24"
+                width="19"
+                height="19"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M5 3h2v2c4-3 7 3 12 0v11c-5 3-8-3-12 0v5H5z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button id="next" class="next-round" hidden>Next operator →</button>
+        <div id="message" role="status"></div>
+      </section>
+      <section class="panel rounds">
+        <div class="section-label">02 / VOICE LOG <span>5 ATTEMPTS</span></div>
+        <div class="round-layout">
+          <div id="steps" class="steps"></div>
+          <section class="hints-card" aria-label="Hints">
+            <strong class="hints-heading">HINTS</strong>
+            <div id="hints" aria-live="polite"></div>
+          </section>
+        </div>
+        <div id="history"></div>
+      </section>
+      <dialog id="instructions">
+        <button class="close" aria-label="Close instructions">×</button>
+        <h2>How to play</h2>
+        <p>
+          Identify the operator in five attempts. The first line is always
+          “Arknights”. Each incorrect guess or skip unlocks another voice line.
+          Replay any unlocked attempt. Voice lines 2–5 change each round, with
+          longer lines later and a trust conversation at the end.
+        </p>
+        <p>
+          Hints reveal rarity, class, then race and faction. Each language has
+          its own statistics. Switching language starts a new round without
+          counting the unfinished round. Click the next locked attempt to skip.
+          Click the playing attempt to pause.
+        </p>
+      </dialog>
+      <dialog id="statistics">
+        <button class="close" aria-label="Close statistics">×</button>
+        <h2 id="statisticsTitle">Lifetime statistics</h2>
+        <p>Saved in this browser across sessions.</p>
+        <div id="statsLanguages" aria-label="Statistics language"></div>
+        <div id="statDetails"></div>
+      </dialog>
+      <footer>
+        <details class="background-settings">
+          <summary>Background</summary>
+          <label
+            >Choose an image
+            <input id="backgroundFile" type="file" accept="image/*" /></label
+          ><button id="resetBackground">Reset background</button>
+          <p id="backgroundStatus" role="status"></p>
+        </details>
+        <button id="showStats" aria-label="Stats">Stats</button><br /><span
+          id="stats"
+        ></span>
+        <p id="rosterInfo">Global operators · Alternate forms grouped</p>
+        <p>
+          Fan project · Characters & audio © HYPERGRYPH ·
+          <a href="https://github.com/isHarryh/Ark-Voice">Audio source</a>
+        </p>
+      </footer>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

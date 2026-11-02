@@ -1,0 +1,6 @@
+node_modules/
+.cache/
+.openai/
+coverage/
+*.zip
+scripts/setup-github.py
