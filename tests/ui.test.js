@@ -48,7 +48,7 @@ const operators = ["Amiya", "Texas", "Exusiai"].map((name, i) => ({
   ),
 }));
 const flush = () => new Promise((r) => setTimeout(r, 25));
-async function setup(saved = {}) {
+async function setup(saved = {}, options = {}) {
   const dom = new JSDOM(html, {
       url: "https://game.test/",
       runScripts: "outside-only",
@@ -75,7 +75,10 @@ async function setup(saved = {}) {
   w.Math.random = () => 0.6;
   w.URL.createObjectURL = () => "blob:audio";
   w.URL.revokeObjectURL = () => {};
-  w.indexedDB = { open: () => ({}) };
+  Object.defineProperty(w, "indexedDB", { get() {
+    if (options.blockStorage) throw new w.DOMException("Storage blocked", "SecurityError");
+    return { open: () => ({}) };
+  }});
   w.HTMLDialogElement.prototype.showModal = function () {
     this.open = true;
   };
@@ -275,4 +278,19 @@ test("streak starts at three wins and disappears after a loss", async () => {
   assert.equal(x.$("streak").hidden, true);
   await flush();
   x.w.close();
+});
+
+
+test("rarity modal works when browser blocks IndexedDB", async () => {
+  const x = await setup({}, {blockStorage:true});
+  x.$("showFilters").click();
+  assert.equal(x.$("filterDialog").open, true);
+  assert.equal(x.$("rarities").querySelectorAll("input").length, 6);
+  x.$("rarities").querySelector('[value="1"]').checked = false;
+  x.$("filterDialog").querySelector(".close").click();
+  x.$("showFilters").click();
+  assert.equal(x.$("rarities").querySelector('[value="1"]').checked, true);
+  x.$("applyFilters").click();
+  assert.equal(x.$("filterDialog").open, false);
+  await flush(); x.w.close();
 });

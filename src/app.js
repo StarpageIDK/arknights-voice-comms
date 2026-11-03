@@ -465,10 +465,10 @@ fetch("game-data.json")
     $("message").textContent = "Unable to load game data. Please reload.";
   });
 
-const backgroundRequest = indexedDB.open("voiceprint-settings", 1);
 let backgroundDB;
-backgroundRequest.onupgradeneeded = () =>
-  backgroundRequest.result.createObjectStore("settings");
+function backgroundUnavailable() {
+  $("backgroundStatus").textContent = "Browser storage is unavailable. Background changes last for this session only.";
+}
 function displayBackground(blob) {
   if (window.customBackgroundURL)
     URL.revokeObjectURL(window.customBackgroundURL);
@@ -479,16 +479,23 @@ function displayBackground(blob) {
   );
   document.body.classList.toggle("custom-background", !!blob);
 }
-backgroundRequest.onsuccess = () => {
-  backgroundDB = backgroundRequest.result;
-  const request = backgroundDB
-    .transaction("settings")
-    .objectStore("settings")
-    .get("background");
-  request.onsuccess = () => {
-    if (request.result) displayBackground(request.result);
+// Optional image persistence must never interrupt game/UI initialization.
+try {
+  const backgroundRequest = indexedDB.open("voiceprint-settings", 1);
+  backgroundRequest.onupgradeneeded = () =>
+    backgroundRequest.result.createObjectStore("settings");
+  backgroundRequest.onerror = backgroundRequest.onblocked = backgroundUnavailable;
+  backgroundRequest.onsuccess = () => {
+    try {
+      backgroundDB = backgroundRequest.result;
+      const request = backgroundDB.transaction("settings").objectStore("settings").get("background");
+      request.onerror = backgroundUnavailable;
+      request.onsuccess = () => {
+        if (request.result) displayBackground(request.result);
+      };
+    } catch { backgroundDB = null; backgroundUnavailable(); }
   };
-};
+} catch { backgroundUnavailable(); }
 $("backgroundFile").onchange = async () => {
   const file = $("backgroundFile").files[0];
   if (!file) return;
@@ -501,7 +508,7 @@ $("backgroundFile").onchange = async () => {
         .transaction("settings", "readwrite")
         .objectStore("settings")
         .put(file, "background");
-    $("backgroundStatus").textContent = "Background saved in this browser.";
+    $("backgroundStatus").textContent = backgroundDB ? "Background saved in this browser." : "Background applied for this session only.";
   } catch {
     $("backgroundStatus").textContent = "Please choose a valid image.";
   }
