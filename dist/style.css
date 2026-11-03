@@ -942,7 +942,7 @@ h3 {
   background: #37272a;
 }
 footer #showStats {
-  margin-bottom: 14px;
+  margin: 0;
 }
 #progress:disabled {
   opacity: 0.35;
@@ -1553,5 +1553,5 @@ footer #showStats {
 .footer-actions .streak.hot { filter: drop-shadow(0 0 5px #f6d57766); }
 .footer-actions .streak.blazing { filter: drop-shadow(0 0 8px #ff884499); animation: flame-flicker 2s ease-in-out infinite alternate; }
 .footer-actions .streak.legend { filter: drop-shadow(0 0 12px #df9dffbb); animation: flame-flicker 1.5s ease-in-out infinite alternate; }
-@keyframes flame-flicker { from { transform: translateY(0) scale(1); } to { transform: translateY(-2px) scale(1.07); } }
+@keyframes flame-flicker { from { opacity: 0.8; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .footer-actions .streak { animation: none; } }
