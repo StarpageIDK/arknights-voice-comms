@@ -43,6 +43,28 @@ export function eligibleOperators(operators, language, rarities) {
     (o) => o.voices[language] && rarities.includes(o.rarity),
   );
 }
+export function searchOperators(operators, query) {
+  const normalized = normalizeName(query);
+  if (!normalized) return [];
+  const rank = (name) => {
+    const value = normalizeName(name);
+    return value === normalized
+      ? 0
+      : value.startsWith(normalized)
+        ? 1
+        : value.includes(normalized)
+          ? 2
+          : 3;
+  };
+  return operators
+    .map((operator) => ({
+      operator,
+      rank: Math.min(...[operator.name, ...(operator.aliases || [])].map(rank)),
+    }))
+    .filter((entry) => entry.rank < 3)
+    .sort((a, b) => a.rank - b.rank)
+    .map((entry) => entry.operator);
+}
 export function streakTier(streak) {
   return streak >= 25
     ? "legend"

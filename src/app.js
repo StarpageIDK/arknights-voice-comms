@@ -1,4 +1,9 @@
-import { matchesName, eligibleOperators, streakTier } from "./core.js";
+import {
+  matchesName,
+  searchOperators,
+  eligibleOperators,
+  streakTier,
+} from "./core.js";
 import {
   classicMode,
   createRound,
@@ -222,7 +227,7 @@ function search() {
     closeSearch();
     return;
   }
-  matches = pool().filter((o) => matchesName(o, $("guess").value));
+  matches = searchOperators(pool(), $("guess").value);
   $("suggestions").replaceChildren();
   active = -1;
   for (const [i, o] of matches.entries()) {
@@ -467,7 +472,8 @@ fetch("game-data.json")
 
 let backgroundDB;
 function backgroundUnavailable() {
-  $("backgroundStatus").textContent = "Browser storage is unavailable. Background changes last for this session only.";
+  $("backgroundStatus").textContent =
+    "Browser storage is unavailable. Background changes last for this session only.";
 }
 function displayBackground(blob) {
   if (window.customBackgroundURL)
@@ -484,18 +490,27 @@ try {
   const backgroundRequest = indexedDB.open("voiceprint-settings", 1);
   backgroundRequest.onupgradeneeded = () =>
     backgroundRequest.result.createObjectStore("settings");
-  backgroundRequest.onerror = backgroundRequest.onblocked = backgroundUnavailable;
+  backgroundRequest.onerror = backgroundRequest.onblocked =
+    backgroundUnavailable;
   backgroundRequest.onsuccess = () => {
     try {
       backgroundDB = backgroundRequest.result;
-      const request = backgroundDB.transaction("settings").objectStore("settings").get("background");
+      const request = backgroundDB
+        .transaction("settings")
+        .objectStore("settings")
+        .get("background");
       request.onerror = backgroundUnavailable;
       request.onsuccess = () => {
         if (request.result) displayBackground(request.result);
       };
-    } catch { backgroundDB = null; backgroundUnavailable(); }
+    } catch {
+      backgroundDB = null;
+      backgroundUnavailable();
+    }
   };
-} catch { backgroundUnavailable(); }
+} catch {
+  backgroundUnavailable();
+}
 $("backgroundFile").onchange = async () => {
   const file = $("backgroundFile").files[0];
   if (!file) return;
@@ -508,7 +523,9 @@ $("backgroundFile").onchange = async () => {
         .transaction("settings", "readwrite")
         .objectStore("settings")
         .put(file, "background");
-    $("backgroundStatus").textContent = backgroundDB ? "Background saved in this browser." : "Background applied for this session only.";
+    $("backgroundStatus").textContent = backgroundDB
+      ? "Background saved in this browser."
+      : "Background applied for this session only.";
   } catch {
     $("backgroundStatus").textContent = "Please choose a valid image.";
   }
@@ -571,7 +588,8 @@ for (const value of [1, 2, 3, 4, 5, 6]) {
 $("showFilters").onclick = () => {
   for (const checkbox of $("rarities").querySelectorAll("input"))
     checkbox.checked = rarities.includes(Number(checkbox.value));
-  $("filterStatus").textContent = "Choose any combination. Applying changes starts a new round.";
+  $("filterStatus").textContent =
+    "Choose any combination. Applying changes starts a new round.";
   $("filterDialog").showModal();
 };
 $("applyFilters").onclick = () => {
