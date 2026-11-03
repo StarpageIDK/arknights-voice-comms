@@ -22,11 +22,14 @@
           </button>
         </div>
         <div id="languages" aria-label="Voice language"></div>
+        <button id="showFilters" type="button" aria-haspopup="dialog" aria-controls="filterDialog">Rarity</button>
         <span class="mode">∞ Free play</span>
       </header>
-      <section class="panel filters" aria-label="Game filters">
+      <dialog id="filterDialog" class="filters" aria-labelledby="filterTitle">
+        <button class="close" aria-label="Close rarity filters">×</button>
+        <h2 id="filterTitle">Operator rarity</h2>
         <fieldset>
-          <legend>Operator rarity</legend>
+          <legend>Select rarities</legend>
           <div id="rarities"></div>
         </fieldset>
         <div class="filter-actions">
@@ -38,7 +41,7 @@
         <p id="filterStatus" role="status">
           Choose any combination. Applying changes starts a new round.
         </p>
-      </section>
+      </dialog>
       <div id="streak" class="streak" role="status" hidden></div>
       <section class="panel player">
         <div class="section-label">

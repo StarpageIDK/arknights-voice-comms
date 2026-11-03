@@ -1543,3 +1543,7 @@ footer #showStats {
     flex-wrap: wrap;
   }
 }
+
+#filterDialog { padding: 24px; max-height: 90vh; overflow-y: auto; }
+#filterDialog h2 { padding-right: 36px; }
+#showFilters { white-space: nowrap; }

@@ -561,6 +561,12 @@ for (const value of [1, 2, 3, 4, 5, 6]) {
   label.append(checkbox, document.createTextNode(`${value}★`));
   $("rarities").append(label);
 }
+$("showFilters").onclick = () => {
+  for (const checkbox of $("rarities").querySelectorAll("input"))
+    checkbox.checked = rarities.includes(Number(checkbox.value));
+  $("filterStatus").textContent = "Choose any combination. Applying changes starts a new round.";
+  $("filterDialog").showModal();
+};
 $("applyFilters").onclick = () => {
   if (!data) return;
   const selectedRarities = [
@@ -575,9 +581,12 @@ $("applyFilters").onclick = () => {
       "No operators match this language and rarity.";
     return;
   }
-  if (selectedRarities.join() === rarities.join()) return;
+  if (selectedRarities.join() === rarities.join()) {
+    $("filterDialog").close();
+    return;
+  }
   rarities = selectedRarities;
   save("voiceprint-rarities", rarities);
-  $("filterStatus").textContent = "Filters applied. A new round has started.";
+  $("filterDialog").close();
   next();
 };
