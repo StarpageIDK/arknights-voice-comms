@@ -1410,3 +1410,136 @@ footer #showStats {
 .hints-card .hints-heading {
   font-size: 10px;
 }
+.filters {
+  padding: 16px 20px;
+}
+.filters fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.filters legend {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #c8c8cc;
+  margin-bottom: 12px;
+}
+#rarities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#rarities label {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid #535459;
+  padding: 9px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#rarities label:has(input:checked) {
+  color: #f1d873;
+  border-color: #bcaa5e;
+  background: #dbc56812;
+}
+#rarities input {
+  appearance: auto;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  flex: none;
+  accent-color: #dbc568;
+}
+.filter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+}
+#filterCount,
+#filterStatus {
+  font-size: 11px;
+  color: #a4a5ab;
+}
+#filterStatus {
+  margin: 10px 0 0;
+  line-height: 1.5;
+}
+.suggestion-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.suggestion-details small {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-size: 10px;
+  color: #b0b1b8;
+}
+#suggestions .role-icon {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+  border-radius: 0;
+}
+.voice-actors {
+  margin: 7px 0 0;
+  font-size: 12px;
+  color: #c5c6cd;
+}
+.streak {
+  --streak-color: #86d8b1;
+  width: fit-content;
+  margin: 0 auto 16px;
+  padding: 9px 20px;
+  border: 1px solid var(--streak-color);
+  border-radius: 20px;
+  color: var(--streak-color);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.streak.hot {
+  --streak-color: #f6d577;
+  background: #f6d5770c;
+}
+.streak.blazing {
+  --streak-color: #ffaa72;
+  box-shadow: 0 0 20px #ff8a4430;
+}
+.streak.legend {
+  --streak-color: #dfb4ff;
+  background: linear-gradient(100deg, #9c5ee012, #e9bbff20, #9c5ee012);
+  box-shadow: 0 0 24px #c184ff40;
+  animation: streak-glow 3s ease-in-out infinite alternate;
+}
+@keyframes streak-glow {
+  to {
+    box-shadow: 0 0 30px #c184ff66;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .streak {
+    animation: none !important;
+  }
+}
+@media (max-width: 480px) {
+  .filters {
+    padding: 14px;
+  }
+  #rarities {
+    gap: 6px;
+  }
+  #rarities label {
+    padding: 8px;
+  }
+  .filter-actions {
+    flex-wrap: wrap;
+  }
+}

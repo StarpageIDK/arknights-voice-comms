@@ -45,7 +45,7 @@ export function createStorage(getStorage = () => localStorage) {
   function recent() {
     const value = read("voiceprint-recent", []);
     return Array.isArray(value)
-      ? value.filter((v) => typeof v === "string").slice(-20)
+      ? value.filter((v) => typeof v === "string").slice(-50)
       : [];
   }
   function history() {

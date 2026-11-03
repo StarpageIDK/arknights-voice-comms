@@ -18,12 +18,16 @@ const operators = ["Amiya", "Texas", "Exusiai"].map((name, i) => ({
   class: "Guard",
   race: "Test race",
   faction: "Rhodes Island",
+  archetype: "Test archetype",
+  classIcon: "class.png",
+  archetypeIcon: "archetype.png",
+  voiceActors: { JP: ["Test Actor"], EN: ["English Actor"] },
   avatar: "avatar.png",
   voices: Object.fromEntries(
     ["JP", "EN", "CN", "KR"].map((l) => [
       l,
       Object.fromEntries(
-        ["037", "021", "002", "003", "009"].map((id) => [
+        ["037", "025", "023", "003", "009"].map((id) => [
           id,
           `${i}/${l}/${id}.ogg`,
         ]),
@@ -35,8 +39,8 @@ const operators = ["Amiya", "Texas", "Exusiai"].map((name, i) => ({
       l,
       [
         { id: "037", duration: 1, kind: "title" },
-        { id: "021", duration: 2, kind: "battle" },
-        { id: "002", duration: 8, kind: "talk" },
+        { id: "025", duration: 2, kind: "battle" },
+        { id: "023", duration: 8, kind: "talk" },
         { id: "003", duration: 12, kind: "talk" },
         { id: "009", duration: 30, kind: "trust" },
       ],
@@ -207,4 +211,68 @@ test("settings restore zero volume and language; all hints stay in the sixth til
   assert.equal(x.$("hints").closest(".hints-card") !== null, true);
   assert.equal(x.$("hints").querySelectorAll(".hint-segment").length, 4);
   x.dom.window.close();
+});
+
+test("forfeit unlocks every voice and shows the current-language actor", async () => {
+  const x = await setup();
+  x.$("giveup").click();
+  assert.ok(
+    [...x.$("steps").querySelectorAll("button")].every((b) => !b.disabled),
+  );
+  assert.match(x.$("message").textContent, /VA .* JP: Test Actor/);
+  x.$("steps").querySelectorAll("button")[4].click();
+  await flush();
+  assert.equal(x.audio.paused, false);
+  await flush();
+  x.w.close();
+});
+test("rarity filters reject an empty pool and persist valid selection", async () => {
+  const x = await setup();
+  for (const c of x.$("rarities").querySelectorAll("input")) c.checked = false;
+  x.$("applyFilters").click();
+  assert.match(x.$("filterStatus").textContent, /at least one/);
+  x.$("rarities").querySelector('[value="6"]').checked = true;
+  x.$("applyFilters").click();
+  assert.match(x.$("filterStatus").textContent, /No operators/);
+  x.$("rarities").querySelector('[value="5"]').checked = true;
+  x.$("applyFilters").click();
+  assert.deepEqual(
+    JSON.parse(x.w.localStorage.getItem("voiceprint-rarities")),
+    [5, 6],
+  );
+  assert.match(x.$("filterCount").textContent, /3 operators/);
+  await flush();
+  x.w.close();
+});
+test("search renders class and archetype icons", async () => {
+  const x = await setup();
+  x.$("guess").value = "Tex";
+  x.$("guess").dispatchEvent(new x.w.Event("input"));
+  assert.equal(x.$("suggestions").querySelectorAll(".role-icon").length, 2);
+  assert.match(x.$("suggestions").textContent, /Guard.*Test archetype/);
+  await flush();
+  x.w.close();
+});
+test("streak starts at three wins and disappears after a loss", async () => {
+  const x = await setup({
+    "voiceprint-language-stats": {
+      JP: {
+        played: 2,
+        won: 2,
+        streak: 2,
+        best: 2,
+        distribution: [2, 0, 0, 0, 0],
+      },
+    },
+  });
+  assert.equal(x.$("streak").hidden, true);
+  x.$("guess").value = "Texas";
+  x.$("guessForm").dispatchEvent(new x.w.Event("submit", { cancelable: true }));
+  assert.equal(x.$("streak").hidden, false);
+  assert.match(x.$("streak").textContent, /3 WIN/);
+  x.$("next").click();
+  x.$("giveup").click();
+  assert.equal(x.$("streak").hidden, true);
+  await flush();
+  x.w.close();
 });

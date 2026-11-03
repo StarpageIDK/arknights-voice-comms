@@ -2,7 +2,7 @@ import { chooseOperator, chooseLines } from "./core.js";
 
 export const classicMode = Object.freeze({
   id: "classic",
-  rulesVersion: 1,
+  rulesVersion: 2,
   attempts: 5,
   hints: 3,
   chooseOperator,
@@ -25,6 +25,7 @@ export function createRound(operators, language, recent, options = {}) {
     contentVersion: options.contentVersion || "unknown",
     startedAt: new Date().toISOString(),
     language,
+    rarities: options.rarities || [1, 2, 3, 4, 5, 6],
     operator,
     lines: mode.chooseLines(operator, language, options.random),
     limit: mode.attempts,
@@ -75,6 +76,7 @@ export function roundResult(round) {
     won,
     attempt,
     hintCount,
+    rarities,
   } = round;
   return {
     schemaVersion: 1,
@@ -88,6 +90,7 @@ export function roundResult(round) {
     won,
     attempt,
     hintCount,
+    rarities,
     verified: false,
   };
 }

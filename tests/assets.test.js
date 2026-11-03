@@ -56,3 +56,21 @@ test("coverage matches real per-language availability and fresh official resourc
   assert.ok(deer.voices.CN);
   assert.equal(deer.voices.JP, undefined);
 });
+
+test("roster has verified labels, actor lists and local role icons", async () => {
+  for (const op of data.operators) {
+    assert.ok(op.archetype);
+    for (const path of [op.classIcon, op.archetypeIcon]) {
+      const bytes = await readFile("dist/" + path);
+      assert.equal(bytes.subarray(1, 4).toString(), "PNG");
+    }
+    for (const lang of Object.keys(op.voices)) {
+      assert.ok(Array.isArray(op.voiceActors[lang]) && op.voiceActors[lang].length > 0);
+      for (const clip of op.clips[lang])
+        assert.ok(clip.label && !clip.label.startsWith("Voice "));
+      const ids = chooseLines(op, lang);
+      assert.ok(["025", "026", "027", "028"].includes(ids[1]));
+      assert.ok(["023", "024"].includes(ids[2]));
+    }
+  }
+});

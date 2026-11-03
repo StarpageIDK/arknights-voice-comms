@@ -29,5 +29,9 @@
   "live": {
     "base": "https://ark-us-static-online.yo-star.com/assetbundle/official/Android/assets/26-10-26-10-03-17_824ce7/",
     "version": "26-10-26-10-03-17_824ce7"
+  },
+  "icons": {
+    "repo": "ArknightsAssets/ArknightsAssets2",
+    "commit": "aa5cb25df844ee2b0680428b13cb65d5d4b515a5"
   }
 }

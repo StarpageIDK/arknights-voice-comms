@@ -24,6 +24,22 @@
         <div id="languages" aria-label="Voice language"></div>
         <span class="mode">∞ Free play</span>
       </header>
+      <section class="panel filters" aria-label="Game filters">
+        <fieldset>
+          <legend>Operator rarity</legend>
+          <div id="rarities"></div>
+        </fieldset>
+        <div class="filter-actions">
+          <span id="filterCount"></span
+          ><button id="applyFilters" type="button">
+            Apply &amp; new round
+          </button>
+        </div>
+        <p id="filterStatus" role="status">
+          Choose any combination. Applying changes starts a new round.
+        </p>
+      </section>
+      <div id="streak" class="streak" role="status" hidden></div>
       <section class="panel player">
         <div class="section-label">
           01 / LISTEN & IDENTIFY <span>VOICE INTERCEPT</span>
@@ -123,14 +139,19 @@
         <p>
           Identify the operator in five attempts. The first line is always
           “Arknights”. Each incorrect guess or skip unlocks another voice line.
-          Replay any unlocked attempt. Voice lines 2–5 change each round, with
-          longer lines later and a trust conversation at the end.
+          Replay any unlocked attempt. Line 2 is a random In Battle voice; line
+          3 is Deployment 1 or 2, followed by a conversation and a trust line.
+          Finishing a round, including giving up, unlocks all recordings.
         </p>
         <p>
           Hints reveal rarity, class, then race and faction. Each language has
           its own statistics. Switching language starts a new round without
           counting the unfinished round. Click the next locked attempt to skip.
-          Click the playing attempt to pause.
+          Click the playing attempt to pause. Names can be typed without accents
+          or punctuation. Rarity filters restrict the pool and search results.
+          The last 50 operators are excluded; small pools rotate the least
+          recently heard operators. Win streaks appear from three consecutive
+          wins.
         </p>
       </dialog>
       <dialog id="statistics">

@@ -1,3 +1,4 @@
+import { matchesName, eligibleOperators, streakTier } from "./core.js";
 import {
   classicMode,
   createRound,
@@ -12,6 +13,17 @@ const $ = (id) => document.getElementById(id),
 const store = createStorage();
 const { read, save } = store;
 let round;
+const savedRarities = read("voiceprint-rarities", [1, 2, 3, 4, 5, 6]);
+let rarities = Array.isArray(savedRarities)
+  ? [
+      ...new Set(
+        savedRarities.filter((n) => Number.isInteger(n) && n >= 1 && n <= 6),
+      ),
+    ]
+  : [];
+if (!rarities.length) rarities = [1, 2, 3, 4, 5, 6];
+const pool = (code = language, stars = rarities) =>
+  eligibleOperators(data.operators, code, stars);
 let roundLines = [],
   data,
   operator,
@@ -77,15 +89,20 @@ function render() {
   for (let i = 0; i < LIMIT; i++) {
     const b = document.createElement("button"),
       r = results[i];
-    b.innerHTML = `<strong>${i + 1}</strong><span>${i === 0 ? "Arknights" : "Voice line " + (i + 1)}</span>`;
+    const number = document.createElement("strong"),
+      label = document.createElement("span");
+    number.textContent = i + 1;
+    label.textContent =
+      operator.clips[language].find((c) => c.id === roundLines[i])?.label ||
+      (i === 0 ? "Arknights" : "Voice " + roundLines[i]);
+    b.append(number, label);
     if (r) {
       const tag = document.createElement("span");
       tag.className = "result-label";
       tag.textContent = r.label;
       b.append(tag);
     }
-    const won = ended && results.some((result) => result?.kind === "success");
-    b.disabled = won ? false : i > attempt + 1 || (ended && i > attempt);
+    b.disabled = !ended && i > attempt + 1;
     b.className = [
       i === selected ? "selected" : "",
       i === attempt && !r ? "available" : "",
@@ -114,20 +131,30 @@ function render() {
   $("next").hidden = !ended;
   $("stats").textContent =
     `${language} · ${stats.played} PLAYED · ${stats.won} IDENTIFIED · ${stats.played ? Math.round((stats.won / stats.played) * 100) : 0}% WIN RATE`;
+  const tier = streakTier(stats.streak);
+  $("streak").hidden = !tier;
+  $("streak").className = `streak ${tier}`;
+  $("streak").textContent = `${stats.streak} WIN STREAK`;
+  $("streak").setAttribute(
+    "aria-label",
+    `${stats.streak} consecutive wins in ${language}`,
+  );
+  $("filterCount").textContent = `${pool().length} operators available`;
   document.querySelectorAll("[data-lang]").forEach((b) => {
     b.setAttribute("aria-pressed", String(b.dataset.lang === language));
-    b.disabled = !data.operators.some((o) => o.voices[b.dataset.lang]);
+    b.disabled = !pool(b.dataset.lang).length;
   });
 }
 function next(autoplay = false) {
   stop();
   player.clear();
-  round = createRound(data.operators, language, recent, {
+  round = createRound(pool(), language, recent, {
+    rarities: [...rarities],
     contentVersion: data.contentVersion,
   });
   syncRound();
   recent.push(operator.id);
-  recent = recent.slice(-20);
+  recent = recent.slice(-50);
   save("voiceprint-recent", recent);
   selected = 0;
   loaded = "";
@@ -154,6 +181,10 @@ function finish(won) {
   img.alt = operator.name;
   const text = document.createElement("div");
   text.textContent = `${won ? "Identified" : "Answer"}: ${operator.name} · ${operator.rarity}★ ${operator.class} · ${operator.race} / ${operator.faction}`;
+  const actors = document.createElement("p");
+  actors.className = "voice-actors";
+  actors.textContent = `VA · ${language}: ${operator.voiceActors?.[language]?.join(" / ") || "Not listed"}`;
+  text.append(actors);
   $("message").append(img, text);
   closeSearch();
   render();
@@ -191,11 +222,7 @@ function search() {
     closeSearch();
     return;
   }
-  matches = data.operators.filter(
-    (o) =>
-      o.voices[language] &&
-      o.name.toLowerCase().includes($("guess").value.trim().toLowerCase()),
-  );
+  matches = pool().filter((o) => matchesName(o, $("guess").value));
   $("suggestions").replaceChildren();
   active = -1;
   for (const [i, o] of matches.entries()) {
@@ -208,7 +235,33 @@ function search() {
     img.alt = "";
     const name = document.createElement("span");
     name.textContent = o.name;
-    b.append(img, name);
+    const details = document.createElement("span");
+    details.className = "suggestion-details";
+    details.append(name);
+    const metadata = document.createElement("small");
+    for (const [src, text] of [
+      [o.classIcon, o.class],
+      [o.archetypeIcon, o.archetype],
+    ]) {
+      if (src) {
+        const icon = document.createElement("img");
+        icon.src = src;
+        icon.alt = "";
+        icon.className = "role-icon";
+        metadata.append(icon);
+      }
+      if (text) metadata.append(document.createTextNode(text + " "));
+    }
+    details.append(metadata);
+    const alias = o.aliases?.find((name) =>
+      matchesName({ name }, $("guess").value),
+    );
+    if (alias && !matchesName({ name: o.name }, $("guess").value)) {
+      const note = document.createElement("small");
+      note.textContent = `${alias} · grouped with ${o.name}`;
+      details.append(note);
+    }
+    b.append(img, details);
     b.onmousedown = (e) => e.preventDefault();
     b.onclick = () => pick(o);
     $("suggestions").append(b);
@@ -230,6 +283,7 @@ $("guess").onkeydown = (e) => {
   if (["ArrowDown", "ArrowUp"].includes(e.key)) {
     e.preventDefault();
     if ($("suggestions").hidden) search();
+    if (!matches.length) return;
     active = Math.max(
       0,
       Math.min(matches.length - 1, active + (e.key === "ArrowDown" ? 1 : -1)),
@@ -253,9 +307,7 @@ document.addEventListener("click", (e) => {
 $("guessForm").onsubmit = (e) => {
   e.preventDefault();
   if (!data || ended) return;
-  const candidate = data.operators.find(
-    (o) => o.name.toLowerCase() === $("guess").value.trim().toLowerCase(),
-  );
+  const candidate = pool().find((o) => matchesName(o, $("guess").value, true));
   if (!candidate) {
     $("message").textContent = "Select an operator from the list.";
     return;
@@ -317,7 +369,7 @@ function changeLanguage(code) {
   next(true);
 }
 function requestLanguage(code) {
-  if (data && code !== language) changeLanguage(code);
+  if (data && code !== language && pool(code).length) changeLanguage(code);
 }
 $("help").onclick = () => $("instructions").showModal();
 function showStatistics(code) {
@@ -498,3 +550,34 @@ window.addEventListener("storage", () => {
   stats = allStats[language];
   if (data) render();
 });
+
+for (const value of [1, 2, 3, 4, 5, 6]) {
+  const label = document.createElement("label"),
+    checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.value = value;
+  checkbox.checked = rarities.includes(value);
+  checkbox.setAttribute("aria-label", `${value} star operators`);
+  label.append(checkbox, document.createTextNode(`${value}★`));
+  $("rarities").append(label);
+}
+$("applyFilters").onclick = () => {
+  if (!data) return;
+  const selectedRarities = [
+    ...$("rarities").querySelectorAll("input:checked"),
+  ].map((c) => Number(c.value));
+  if (!selectedRarities.length) {
+    $("filterStatus").textContent = "Select at least one rarity.";
+    return;
+  }
+  if (!pool(language, selectedRarities).length) {
+    $("filterStatus").textContent =
+      "No operators match this language and rarity.";
+    return;
+  }
+  if (selectedRarities.join() === rarities.join()) return;
+  rarities = selectedRarities;
+  save("voiceprint-rarities", rarities);
+  $("filterStatus").textContent = "Filters applied. A new round has started.";
+  next();
+};

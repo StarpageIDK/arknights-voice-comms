@@ -60,12 +60,13 @@ Review `dist/coverage-report.json` before committing. Updating is explicit, not 
 ## Gameplay
 
 - Attempt 1 is always the operator's title line, Arknights.
-- Attempts 2–4 are sampled without replacement, sorted by duration; attempt 5 prefers Trust Increase Talk 1, 2 or 3.
-- Clicking the next attempt skips; clicking the currently playing attempt pauses. Winning unlocks all five recordings.
+- Attempt 2 uses a random In Battle 1–4; attempt 3 uses Deployment 1/2; attempt 4 prefers Talk 1–3; attempt 5 prefers Trust Increase Talk 1–3. Every card shows the actual voice category.
+- Clicking the next attempt skips; clicking the currently playing attempt pauses. Finishing or forfeiting unlocks all five recordings.
 - Selecting an operator submits immediately. Hints reveal rarity, class, race and faction.
 - Language changes abandon the unfinished game without recording a loss.
-- Statistics, language, volume and recent operators persist locally; custom backgrounds remain in IndexedDB and are not uploaded.
-- No consecutive operator repeats. When fresh choices exist, only 0.1% of draws come from the last 20 operators; older recent entries receive greater weight.
+- Rarity checkboxes support any combination; applying filters starts a new round without recording a loss. Search ignores accents/punctuation and accepts grouped alternate-form aliases. Results show voice actors for the selected voice pack. Streak badges start at 3 wins, with tiers at 5, 10 and 25.
+- Statistics, language, volume, rarity selection and recent operators persist locally; custom backgrounds remain in IndexedDB and are not uploaded.
+- Exclude the last 50 operators. Small filtered pools fall back to the least recently seen operator; a one-operator pool can repeat. Recent history persists across reloads.
 
 ## Tests and deployment
 
@@ -85,3 +86,5 @@ Arknights characters, audio and artwork © HYPERGRYPH / Yostar. Unofficial, non-
 ## Architecture and future features
 
 See [extension boundaries and account roadmap](docs/architecture.md). Round rules, audio playback and local result storage are separate modules. New results use versioned per-round records; existing local statistics remain a baseline. Registration and a backend are not implemented yet.
+
+Class and archetype icons come from ArknightsAssets/ArknightsAssets2, pinned in `sources.lock.json`. Run `python scripts/sync-icons.py` after importing a new roster. Actor names and voice titles come from the pinned Global charword table; collaboration packs use their LINKAGE cast.

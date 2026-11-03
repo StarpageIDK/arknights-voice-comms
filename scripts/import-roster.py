@@ -5,6 +5,7 @@ import json,pathlib,re,urllib.request,concurrent.futures,time
 ROOT=pathlib.Path(__file__).resolve().parents[1];CACHE=ROOT/'.cache';OUT=ROOT/'dist'
 def load(path):return json.loads(path.read_text(encoding='utf-8'))
 lock=load(ROOT/'sources.lock.json');chars=load(CACHE/'character_table.json');handbook=load(CACHE/'handbook_info_table.json')['handbookDict'];teams=load(CACHE/'handbook_team_table.json');groups=load(CACHE/'char_meta_table.json')['spCharGroups'];alts={id:ids[0] for ids in groups.values() for id in ids}
+words=load(CACHE/'charword_table.json');standard_labels={v['voiceId'].split('_')[-1]:v['voiceTitle'] for v in words['charWords'].values() if v['charId']=='char_102_texas'};subprof=load(CACHE/'uniequip_table.json')['subProfDict']
 classes={'PIONEER':'Vanguard','WARRIOR':'Guard','TANK':'Defender','SNIPER':'Sniper','CASTER':'Caster','MEDIC':'Medic','SUPPORT':'Supporter','SPECIAL':'Specialist'}
 clip_ids=['037','021','022','023','024','025','026','027','028','017','018','019','020','002','003','004','007','008','009']
 trees={lang:{x['path']:x for x in load(CACHE/f'arknights-voice-{lang.lower()}-tree.json')['tree'] if x['type']=='blob'} for lang in lock['archives']}
@@ -17,13 +18,19 @@ for id,c in chars.items():
  texts='\n'.join(s['storyText'] for block in handbook.get(id,{}).get('storyTextAudio',[]) for s in block.get('stories',[]) if block.get('storyTitle')=='Basic Info');race=re.search(r'\[Race\]\s*([^\n]+)',texts)
  faction=next((teams[x]['powerName'] for x in [c.get('teamId'),c.get('groupId'),c.get('nationId')] if x in teams),'Independent')
  op={'id':id,'name':c['name'],'rarity':int(c['rarity'].split('_')[-1]),'class':classes[c['profession']],'race':race.group(1).strip() if race else 'Undisclosed','faction':faction,'avatar':f'avatars/{id}.png','voices':{},'clips':{}}
+ op['aliases']=[chars[a]['name'] for a in groups.get(id,[]) if a!=id and a in chars]
+ op['archetype']=subprof[c['subProfessionId']]['subProfessionName']
+ op['classIcon']=f"icons/classes/{c['profession'].lower()}.png"
+ op['archetypeId']=c['subProfessionId']
+ op['archetypeIcon']=f"icons/archetypes/{c['subProfessionId']}.png"
+ op['voiceActors']={lang:words['voiceLangDict'].get(id,{}).get('dict',{}).get('CN_MANDARIN' if lang=='CN' else lang,words['voiceLangDict'].get(id,{}).get('dict',{}).get('LINKAGE',{})).get('cvName',[]) for lang in ['JP','EN','CN','KR']}
  for lang,prefix in [('JP','voice'),('EN','voice_en'),('CN','voice_cn'),('KR','voice_kr')]:
   bundle=f'audio/sound_beta_2/{prefix}/{id}.ab';entries=[];urls={};override=overrides.get((id,lang));info=manifest.get(bundle)
   if not info:continue
   if override and override['hash']!=info['hash']:raise RuntimeError('Stale live override '+bundle)
   if not override and states[lang].get(bundle)!=info['hash']:raise RuntimeError('Changed bundle not extracted '+bundle)
   for n in clip_ids:
-   kind='title' if n=='037' else 'trust' if n in ['007','008','009'] else 'talk' if n in ['002','003','004'] else 'battle'
+   kind='title' if n=='037' else 'trust' if n in ['007','008','009'] else 'talk' if n in ['002','003','004'] else 'deployment' if n in ['023','024'] else 'battle' if n in ['025','026','027','028'] else 'operation'
    if override:
     clip=override['clips'].get(n)
     if not clip:continue
@@ -32,7 +39,7 @@ for id,c in chars.items():
     path=f'{id}/cn_{n}.mp3';entry=trees[lang].get(path)
     if not entry:continue
     source=lock['archives'][lang];urls[n]=f"https://raw.githubusercontent.com/{source['repo']}/{source['commit']}/{path}";duration=entry['size']/12000;estimated=True
-   entries.append({'id':n,'duration':round(duration,3),'durationEstimated':estimated,'kind':kind})
+   entries.append({'id':n,'duration':round(duration,3),'durationEstimated':estimated,'kind':kind,'label':words['charWords'].get(f'{id}_CN_{n}',{}).get('voiceTitle',standard_labels[n])})
   if '037' not in urls or len(entries)<5:
    report.setdefault('unplayableLanguages',[]).append({'id':id,'language':lang,'reason':'Missing title or fewer than five clips'});continue
   op['voices'][lang]=urls;op['clips'][lang]=entries;report['voiceSources']['live' if override else 'archived']+=1
