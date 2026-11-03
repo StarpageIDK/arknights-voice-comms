@@ -1547,3 +1547,11 @@ footer #showStats {
 #filterDialog { padding: 24px; max-height: 90vh; overflow-y: auto; }
 #filterDialog h2 { padding-right: 36px; }
 #showFilters { white-space: nowrap; }
+
+.footer-actions { display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 14px; }
+.footer-actions .streak { margin: 0; border: 0; border-radius: 8px; padding: 4px 9px; font-size: 20px; letter-spacing: 1px; line-height: 1.5; background: transparent; box-shadow: none; font-variant-numeric: tabular-nums; }
+.footer-actions .streak.hot { filter: drop-shadow(0 0 5px #f6d57766); }
+.footer-actions .streak.blazing { filter: drop-shadow(0 0 8px #ff884499); animation: flame-flicker 2s ease-in-out infinite alternate; }
+.footer-actions .streak.legend { filter: drop-shadow(0 0 12px #df9dffbb); animation: flame-flicker 1.5s ease-in-out infinite alternate; }
+@keyframes flame-flicker { from { transform: translateY(0) scale(1); } to { transform: translateY(-2px) scale(1.07); } }
+@media (prefers-reduced-motion: reduce) { .footer-actions .streak { animation: none; } }

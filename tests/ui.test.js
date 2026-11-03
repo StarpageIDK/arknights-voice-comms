@@ -273,7 +273,7 @@ test("streak starts at three wins and disappears after a loss", async () => {
   x.$("guess").value = "Texas";
   x.$("guessForm").dispatchEvent(new x.w.Event("submit", { cancelable: true }));
   assert.equal(x.$("streak").hidden, false);
-  assert.match(x.$("streak").textContent, /3 WIN/);
+  assert.match(x.$("streak").textContent, /3/);
   x.$("next").click();
   x.$("giveup").click();
   assert.equal(x.$("streak").hidden, true);

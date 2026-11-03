@@ -139,7 +139,8 @@ function render() {
   const tier = streakTier(stats.streak);
   $("streak").hidden = !tier;
   $("streak").className = `streak ${tier}`;
-  $("streak").textContent = `${stats.streak} WIN STREAK`;
+  $("streak").textContent = `🔥 ${stats.streak}`;
+  $("streak").title = `${stats.streak} consecutive wins`;
   $("streak").setAttribute(
     "aria-label",
     `${stats.streak} consecutive wins in ${language}`,
