@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_1046_sbell2",
+  "hash": "133c0e6a6812e9fa337a2f56b63e8de4",
+  "bundle": "audio/sound_beta_2/voice_kr/char_1046_sbell2.ab",
+  "clips": {
+    "018": {
+      "path": "live-audio/char_1046_sbell2/KR/018.mp3",
+      "duration": 2.979025
+    },
+    "022": {
+      "path": "live-audio/char_1046_sbell2/KR/022.mp3",
+      "duration": 3.640658
+    },
+    "020": {
+      "path": "live-audio/char_1046_sbell2/KR/020.mp3",
+      "duration": 2.012494
+    },
+    "009": {
+      "path": "live-audio/char_1046_sbell2/KR/009.mp3",
+      "duration": 28.905986
+    },
+    "028": {
+      "path": "live-audio/char_1046_sbell2/KR/028.mp3",
+      "duration": 2.779773
+    },
+    "024": {
+      "path": "live-audio/char_1046_sbell2/KR/024.mp3",
+      "duration": 1.704172
+    },
+    "004": {
+      "path": "live-audio/char_1046_sbell2/KR/004.mp3",
+      "duration": 25.808503
+    },
+    "027": {
+      "path": "live-audio/char_1046_sbell2/KR/027.mp3",
+      "duration": 2.746893
+    },
+    "037": {
+      "path": "live-audio/char_1046_sbell2/KR/037.mp3",
+      "duration": 1.155306
+    },
+    "023": {
+      "path": "live-audio/char_1046_sbell2/KR/023.mp3",
+      "duration": 0.863107
+    },
+    "025": {
+      "path": "live-audio/char_1046_sbell2/KR/025.mp3",
+      "duration": 2.935351
+    },
+    "008": {
+      "path": "live-audio/char_1046_sbell2/KR/008.mp3",
+      "duration": 25.584104
+    },
+    "019": {
+      "path": "live-audio/char_1046_sbell2/KR/019.mp3",
+      "duration": 4.624739
+    },
+    "021": {
+      "path": "live-audio/char_1046_sbell2/KR/021.mp3",
+      "duration": 2.492562
+    },
+    "007": {
+      "path": "live-audio/char_1046_sbell2/KR/007.mp3",
+      "duration": 27.612494
+    },
+    "026": {
+      "path": "live-audio/char_1046_sbell2/KR/026.mp3",
+      "duration": 2.384785
+    },
+    "002": {
+      "path": "live-audio/char_1046_sbell2/KR/002.mp3",
+      "duration": 25.479206
+    },
+    "003": {
+      "path": "live-audio/char_1046_sbell2/KR/003.mp3",
+      "duration": 22.09551
+    },
+    "017": {
+      "path": "live-audio/char_1046_sbell2/KR/017.mp3",
+      "duration": 3.385374
+    }
+  }
+}

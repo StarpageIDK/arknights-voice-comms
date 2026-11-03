@@ -1,0 +1,84 @@
+{
+  "language": "EN",
+  "operator": "char_1046_sbell2",
+  "hash": "9ce454a12c71734c59abd5b2dd1d3b43",
+  "bundle": "audio/sound_beta_2/voice_en/char_1046_sbell2.ab",
+  "clips": {
+    "027": {
+      "path": "live-audio/char_1046_sbell2/EN/027.mp3",
+      "duration": 3.503356
+    },
+    "019": {
+      "path": "live-audio/char_1046_sbell2/EN/019.mp3",
+      "duration": 4.50839
+    },
+    "018": {
+      "path": "live-audio/char_1046_sbell2/EN/018.mp3",
+      "duration": 2.2978
+    },
+    "003": {
+      "path": "live-audio/char_1046_sbell2/EN/003.mp3",
+      "duration": 22.221474
+    },
+    "008": {
+      "path": "live-audio/char_1046_sbell2/EN/008.mp3",
+      "duration": 24.019977
+    },
+    "004": {
+      "path": "live-audio/char_1046_sbell2/EN/004.mp3",
+      "duration": 28.709637
+    },
+    "017": {
+      "path": "live-audio/char_1046_sbell2/EN/017.mp3",
+      "duration": 2.643923
+    },
+    "009": {
+      "path": "live-audio/char_1046_sbell2/EN/009.mp3",
+      "duration": 26.07127
+    },
+    "037": {
+      "path": "live-audio/char_1046_sbell2/EN/037.mp3",
+      "duration": 1.318481
+    },
+    "002": {
+      "path": "live-audio/char_1046_sbell2/EN/002.mp3",
+      "duration": 26.95288
+    },
+    "026": {
+      "path": "live-audio/char_1046_sbell2/EN/026.mp3",
+      "duration": 2.840907
+    },
+    "020": {
+      "path": "live-audio/char_1046_sbell2/EN/020.mp3",
+      "duration": 1.905556
+    },
+    "023": {
+      "path": "live-audio/char_1046_sbell2/EN/023.mp3",
+      "duration": 1.77
+    },
+    "024": {
+      "path": "live-audio/char_1046_sbell2/EN/024.mp3",
+      "duration": 2.172336
+    },
+    "022": {
+      "path": "live-audio/char_1046_sbell2/EN/022.mp3",
+      "duration": 1.854104
+    },
+    "007": {
+      "path": "live-audio/char_1046_sbell2/EN/007.mp3",
+      "duration": 28.190703
+    },
+    "028": {
+      "path": "live-audio/char_1046_sbell2/EN/028.mp3",
+      "duration": 2.354172
+    },
+    "021": {
+      "path": "live-audio/char_1046_sbell2/EN/021.mp3",
+      "duration": 2.107483
+    },
+    "025": {
+      "path": "live-audio/char_1046_sbell2/EN/025.mp3",
+      "duration": 3.226916
+    }
+  }
+}

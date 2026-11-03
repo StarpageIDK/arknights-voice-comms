@@ -263,7 +263,7 @@ function search() {
     );
     if (alias && !matchesName({ name: o.name }, $("guess").value)) {
       const note = document.createElement("small");
-      note.textContent = `${alias} · grouped with ${o.name}`;
+      note.textContent = `${alias} · ${o.name}`;
       details.append(note);
     }
     b.append(img, details);
@@ -312,7 +312,8 @@ document.addEventListener("click", (e) => {
 $("guessForm").onsubmit = (e) => {
   e.preventDefault();
   if (!data || ended) return;
-  const candidate = pool().find((o) => matchesName(o, $("guess").value, true));
+  const candidates = pool().filter((o) => matchesName(o, $("guess").value, true));
+  const candidate = candidates.length === 1 ? candidates[0] : null;
   if (!candidate) {
     $("message").textContent = "Select an operator from the list.";
     return;
@@ -463,7 +464,7 @@ fetch("game-data.json")
   .then((d) => {
     data = d;
     $("rosterInfo").textContent =
-      `${data.operators.length} Global operators · Alternate forms grouped`;
+      `${data.operators.length} Global operators · Alternate forms included`;
     next();
   })
   .catch(() => {

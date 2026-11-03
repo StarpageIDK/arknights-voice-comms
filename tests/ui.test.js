@@ -14,6 +14,7 @@ const source = (await readFile("src/app.js", "utf8")).replace(
 const operators = ["Amiya", "Texas", "Exusiai"].map((name, i) => ({
   id: String(i),
   name,
+  aliases: i < 2 ? ["shared alter"] : [],
   rarity: 5,
   class: "Guard",
   race: "Test race",
@@ -293,4 +294,18 @@ test("rarity modal works when browser blocks IndexedDB", async () => {
   x.$("applyFilters").click();
   assert.equal(x.$("filterDialog").open, false);
   await flush(); x.w.close();
+});
+
+
+test("ambiguous alter aliases do not silently submit the first matching form", async () => {
+  const x=await setup();
+  x.$("guess").value="shared alter";
+  x.$("guessForm").dispatchEvent(new x.w.Event("submit",{cancelable:true}));
+  assert.match(x.$("counter").textContent,/1 \/ 5/);
+  assert.match(x.$("message").textContent,/Select an operator/);
+  x.$("guess").dispatchEvent(new x.w.Event("input"));
+  assert.equal(x.$("suggestions").querySelectorAll(".suggestion").length,2);
+  x.click(".suggestion"); await flush();
+  assert.match(x.$("counter").textContent,/2 \/ 5/);
+  x.w.close();
 });

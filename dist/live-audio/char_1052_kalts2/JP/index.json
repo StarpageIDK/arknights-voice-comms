@@ -1,0 +1,84 @@
+{
+  "language": "JP",
+  "operator": "char_1052_kalts2",
+  "hash": "08d03ab6e578bf47782146bdfd181236",
+  "bundle": "audio/sound_beta_2/voice/char_1052_kalts2.ab",
+  "clips": {
+    "018": {
+      "path": "live-audio/char_1052_kalts2/JP/018.mp3",
+      "duration": 0.72
+    },
+    "024": {
+      "path": "live-audio/char_1052_kalts2/JP/024.mp3",
+      "duration": 5.468435
+    },
+    "037": {
+      "path": "live-audio/char_1052_kalts2/JP/037.mp3",
+      "duration": 0.91
+    },
+    "004": {
+      "path": "live-audio/char_1052_kalts2/JP/004.mp3",
+      "duration": 31.0
+    },
+    "026": {
+      "path": "live-audio/char_1052_kalts2/JP/026.mp3",
+      "duration": 1.730385
+    },
+    "008": {
+      "path": "live-audio/char_1052_kalts2/JP/008.mp3",
+      "duration": 32.82
+    },
+    "020": {
+      "path": "live-audio/char_1052_kalts2/JP/020.mp3",
+      "duration": 8.191882
+    },
+    "017": {
+      "path": "live-audio/char_1052_kalts2/JP/017.mp3",
+      "duration": 2.7
+    },
+    "002": {
+      "path": "live-audio/char_1052_kalts2/JP/002.mp3",
+      "duration": 30.65
+    },
+    "007": {
+      "path": "live-audio/char_1052_kalts2/JP/007.mp3",
+      "duration": 35.939048
+    },
+    "003": {
+      "path": "live-audio/char_1052_kalts2/JP/003.mp3",
+      "duration": 30.389932
+    },
+    "021": {
+      "path": "live-audio/char_1052_kalts2/JP/021.mp3",
+      "duration": 1.629705
+    },
+    "022": {
+      "path": "live-audio/char_1052_kalts2/JP/022.mp3",
+      "duration": 1.1
+    },
+    "023": {
+      "path": "live-audio/char_1052_kalts2/JP/023.mp3",
+      "duration": 2.650476
+    },
+    "027": {
+      "path": "live-audio/char_1052_kalts2/JP/027.mp3",
+      "duration": 2.54
+    },
+    "025": {
+      "path": "live-audio/char_1052_kalts2/JP/025.mp3",
+      "duration": 2.22
+    },
+    "028": {
+      "path": "live-audio/char_1052_kalts2/JP/028.mp3",
+      "duration": 3.96
+    },
+    "009": {
+      "path": "live-audio/char_1052_kalts2/JP/009.mp3",
+      "duration": 28.18
+    },
+    "019": {
+      "path": "live-audio/char_1052_kalts2/JP/019.mp3",
+      "duration": 7.210862
+    }
+  }
+}

@@ -1,4 +1,4 @@
-"""Extract changed base-operator voice bundles from the official Global server.
+"""Extract changed operator voice bundles from the official Global server.
 Dependencies: arkprts[all], UnityPy, FFmpeg. No game account or login is used.
 """
 import sys, pathlib, json, urllib.request, io, re, subprocess, concurrent.futures, time
@@ -10,14 +10,15 @@ from UnityPy.enums.BundleFile import CompressionFlags
 from UnityPy.helpers import CompressionHelper
 CompressionHelper.DECOMPRESSION_MAP[CompressionFlags.LZHAM]=decompress_lz4ak
 live=json.loads((CACHE/'live-manifest.json').read_text());chars=json.loads((CACHE/'character_table.json').read_text(encoding='utf-8'));groups=json.loads((CACHE/'char_meta_table.json').read_text(encoding='utf-8'))['spCharGroups'];alts={id:ids[0] for ids in groups.values() for id in ids}
-basechars={id for id,c in chars.items() if not c.get('isNotObtainable') and c.get('profession') in ['PIONEER','WARRIOR','TANK','SNIPER','CASTER','MEDIC','SUPPORT','SPECIAL'] and alts.get(id,id)==id}
+chars.update(json.loads((CACHE/'char_patch_table.json').read_text(encoding='utf-8'))['patchChars'])
+basechars={id for id,c in chars.items() if not c.get('isNotObtainable') and c.get('profession') in ['PIONEER','WARRIOR','TANK','SNIPER','CASTER','MEDIC','SUPPORT','SPECIAL']}
 ids={'037','021','022','023','024','025','026','027','028','017','018','019','020','002','003','004','007','008','009'};jobs=[]
 for lang,prefix in [('JP','voice'),('EN','voice_en'),('CN','voice_cn'),('KR','voice_kr')]:
  state=json.loads((CACHE/f'voice-{lang.lower()}-state.json').read_text())['done']
  for info in live['manifest']['abInfos']:
   path=info['name'];char=path.rsplit('/',1)[-1].removesuffix('.ab')
   if path.startswith('audio/sound_beta_2/'+prefix+'/') and char in basechars and state.get(path)!=info['hash']:jobs.append((lang,char,info))
-print('Changed/new base voice packs:',len(jobs),flush=True)
+print('Changed/new voice packs:',len(jobs),flush=True)
 def run(job):
  lang,char,info=job;cache=CACHE/'live-bundles'/f"{info['hash']}.dat";cache.parent.mkdir(exist_ok=True);out=ROOT/'dist'/'live-audio'/char/lang;out.mkdir(parents=True,exist_ok=True);index=out/'index.json'
  if index.exists():

@@ -1,0 +1,84 @@
+{
+  "language": "KR",
+  "operator": "char_1050_chen3",
+  "hash": "991a65adf72b3da67e27e312e3e75fd3",
+  "bundle": "audio/sound_beta_2/voice_kr/char_1050_chen3.ab",
+  "clips": {
+    "021": {
+      "path": "live-audio/char_1050_chen3/KR/021.mp3",
+      "duration": 2.524739
+    },
+    "022": {
+      "path": "live-audio/char_1050_chen3/KR/022.mp3",
+      "duration": 2.12873
+    },
+    "018": {
+      "path": "live-audio/char_1050_chen3/KR/018.mp3",
+      "duration": 4.926871
+    },
+    "009": {
+      "path": "live-audio/char_1050_chen3/KR/009.mp3",
+      "duration": 33.844626
+    },
+    "007": {
+      "path": "live-audio/char_1050_chen3/KR/007.mp3",
+      "duration": 23.288662
+    },
+    "017": {
+      "path": "live-audio/char_1050_chen3/KR/017.mp3",
+      "duration": 3.153741
+    },
+    "023": {
+      "path": "live-audio/char_1050_chen3/KR/023.mp3",
+      "duration": 2.389592
+    },
+    "037": {
+      "path": "live-audio/char_1050_chen3/KR/037.mp3",
+      "duration": 1.058776
+    },
+    "004": {
+      "path": "live-audio/char_1050_chen3/KR/004.mp3",
+      "duration": 24.000295
+    },
+    "020": {
+      "path": "live-audio/char_1050_chen3/KR/020.mp3",
+      "duration": 3.724671
+    },
+    "027": {
+      "path": "live-audio/char_1050_chen3/KR/027.mp3",
+      "duration": 3.57059
+    },
+    "025": {
+      "path": "live-audio/char_1050_chen3/KR/025.mp3",
+      "duration": 3.64737
+    },
+    "019": {
+      "path": "live-audio/char_1050_chen3/KR/019.mp3",
+      "duration": 3.591474
+    },
+    "002": {
+      "path": "live-audio/char_1050_chen3/KR/002.mp3",
+      "duration": 27.68034
+    },
+    "028": {
+      "path": "live-audio/char_1050_chen3/KR/028.mp3",
+      "duration": 3.778866
+    },
+    "026": {
+      "path": "live-audio/char_1050_chen3/KR/026.mp3",
+      "duration": 3.981111
+    },
+    "003": {
+      "path": "live-audio/char_1050_chen3/KR/003.mp3",
+      "duration": 24.438299
+    },
+    "024": {
+      "path": "live-audio/char_1050_chen3/KR/024.mp3",
+      "duration": 1.664376
+    },
+    "008": {
+      "path": "live-audio/char_1050_chen3/KR/008.mp3",
+      "duration": 26.485397
+    }
+  }
+}

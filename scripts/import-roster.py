@@ -7,18 +7,25 @@ def load(path):return json.loads(path.read_text(encoding='utf-8'))
 lock=load(ROOT/'sources.lock.json');chars=load(CACHE/'character_table.json');handbook=load(CACHE/'handbook_info_table.json')['handbookDict'];teams=load(CACHE/'handbook_team_table.json');groups=load(CACHE/'char_meta_table.json')['spCharGroups'];alts={id:ids[0] for ids in groups.values() for id in ids}
 words=load(CACHE/'charword_table.json');standard_labels={v['voiceId'].split('_')[-1]:v['voiceTitle'] for v in words['charWords'].values() if v['charId']=='char_102_texas'};subprof=load(CACHE/'uniequip_table.json')['subProfDict']
 classes={'PIONEER':'Vanguard','WARRIOR':'Guard','TANK':'Defender','SNIPER':'Sniper','CASTER':'Caster','MEDIC':'Medic','SUPPORT':'Supporter','SPECIAL':'Specialist'}
+patch=load(CACHE/'char_patch_table.json')
+for base,info in patch['infos'].items():
+ for form in info['tmplIds']:
+  if form in patch['patchChars']:
+   c=dict(patch['patchChars'][form]);c['name']=c['name']+' ('+classes[c['profession']]+')';chars[form]=c;alts[form]=base
 clip_ids=['037','021','022','023','024','025','026','027','028','017','018','019','020','002','003','004','007','008','009']
 trees={lang:{x['path']:x for x in load(CACHE/f'arknights-voice-{lang.lower()}-tree.json')['tree'] if x['type']=='blob'} for lang in lock['archives']}
 live=load(CACHE/'live-manifest.json');manifest={x['name']:x for x in live['manifest']['abInfos']};states={lang:load(CACHE/f'voice-{lang.lower()}-state.json')['done'] for lang in lock['archives']};overrides={(x['operator'],x['language']):x for x in load(CACHE/'live-overrides.json')}
-report={'sourceVersions':lock,'baseOperators':0,'includedOperators':0,'excluded':[],'languages':{},'mergedAlternateForms':sum(len(ids)-1 for ids in groups.values()),'voiceSources':{'archived':0,'live':0}}
+report={'sourceVersions':lock,'baseOperators':0,'includedOperators':0,'excluded':[],'languages':{},'mergedAlternateForms':0,'alternateForms':sum(len(ids)-1 for ids in groups.values()),'classForms':len(patch['patchChars']),'expectedOperators':[],'voiceSources':{'archived':0,'live':0}}
 operators=[]
 for id,c in chars.items():
- if c.get('isNotObtainable') or c.get('profession') not in classes or alts.get(id,id)!=id:continue
+ if c.get('isNotObtainable') or c.get('profession') not in classes:continue
  report['baseOperators']+=1
+ report['expectedOperators'].append({'id':id,'name':c['name'],'rarity':int(c['rarity'].split('_')[-1]),'class':classes[c['profession']],'archetype':subprof[c['subProfessionId']]['subProfessionName']})
  texts='\n'.join(s['storyText'] for block in handbook.get(id,{}).get('storyTextAudio',[]) for s in block.get('stories',[]) if block.get('storyTitle')=='Basic Info');race=re.search(r'\[Race\]\s*([^\n]+)',texts)
  faction=next((teams[x]['powerName'] for x in [c.get('teamId'),c.get('groupId'),c.get('nationId')] if x in teams),'Independent')
  op={'id':id,'name':c['name'],'rarity':int(c['rarity'].split('_')[-1]),'class':classes[c['profession']],'race':race.group(1).strip() if race else 'Undisclosed','faction':faction,'avatar':f'avatars/{id}.png','voices':{},'clips':{}}
- op['aliases']=[chars[a]['name'] for a in groups.get(id,[]) if a!=id and a in chars]
+ op['baseOperatorId']=alts.get(id,id)
+ op['aliases']=([chars[alts[id]]['name']+' alter',chars[alts[id]]['name']+' alt'] if alts.get(id,id)!=id else [])
  op['archetype']=subprof[c['subProfessionId']]['subProfessionName']
  op['classIcon']=f"icons/classes/{c['profession'].lower()}.png"
  op['archetypeId']=c['subProfessionId']
@@ -40,7 +47,7 @@ for id,c in chars.items():
     if not entry:continue
     source=lock['archives'][lang];urls[n]=f"https://raw.githubusercontent.com/{source['repo']}/{source['commit']}/{path}";duration=entry['size']/12000;estimated=True
    entries.append({'id':n,'duration':round(duration,3),'durationEstimated':estimated,'kind':kind,'label':words['charWords'].get(f'{id}_CN_{n}',{}).get('voiceTitle',standard_labels[n])})
-  if '037' not in urls or len(entries)<5:
+  if '037' not in urls or len(entries)<5 or not any(n in urls for n in ['025','026','027','028']) or not any(n in urls for n in ['023','024']):
    report.setdefault('unplayableLanguages',[]).append({'id':id,'language':lang,'reason':'Missing title or fewer than five clips'});continue
   op['voices'][lang]=urls;op['clips'][lang]=entries;report['voiceSources']['live' if override else 'archived']+=1
  if op['voices']:operators.append(op)
@@ -49,7 +56,7 @@ for id,c in chars.items():
 def avatar(op):
  path=OUT/op['avatar'];path.parent.mkdir(exist_ok=True)
  if path.exists():return
- urls=[f"https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/avatar/{op['id']}.png",f"https://raw.githubusercontent.com/ArknightsAssets/ArknightsAssets/cn/assets/torappu/dynamicassets/arts/charavatars/{op['id']}.png",f"https://raw.githubusercontent.com/ArknightsAssets/ArknightsAssets2/cn/assets/dyn/arts/charavatars/{op['id']}.png"]
+ urls=[f"https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/avatar/{op['id']}.png",f"https://raw.githubusercontent.com/yuanyan3060/ArknightsGameResource/main/avatar/{op['id']}_2.png",f"https://raw.githubusercontent.com/ArknightsAssets/ArknightsAssets/cn/assets/torappu/dynamicassets/arts/charavatars/{op['id']}.png",f"https://raw.githubusercontent.com/ArknightsAssets/ArknightsAssets2/cn/assets/dyn/arts/charavatars/{op['id']}.png"]
  for url in urls:
   for attempt in range(2):
    try:

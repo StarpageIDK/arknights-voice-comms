@@ -6,23 +6,23 @@ A fan-made operator guessing game: five attempts, four voice languages, randomiz
 
 ## Current coverage
 
-All **380 base operators** in the pinned Global character table are included; alternate forms are merged using the game's own character groups. There is no handpicked name allowlist.
+All **417 obtainable operator forms** in the pinned Global character table are included; alternate forms are separate answers with their own rarity, class and voice packs. There is no handpicked name allowlist.
 
 | Voice language | Playable operators |
 | --- | ---: |
-| Japanese | 379 |
-| English | 363 |
-| Mandarin | 362 |
-| Korean | 359 |
+| Japanese | 416 |
+| English | 400 |
+| Mandarin | 399 |
+| Korean | 396 |
 
-27,655 candidate clips. Differences between language counts reflect actual voice availability; a missing language is never silently substituted. See [the coverage report](dist/coverage-report.json) for counts and provenance.
+30,467 candidate clips. Differences between language counts reflect actual voice availability; a missing language is never silently substituted. See [the coverage report](dist/coverage-report.json) for counts and provenance.
 
 ## Sources and freshness
 
 - Global metadata: `ArknightsAssets/ArknightsGamedata`, character-table update **2026-11-01**.
 - Voice archives: `ThiagoVsky/arknights-voice-jp`, `-en`, `-cn`, `-kr`, extracted from the Global client.
 - Every archive bundle hash is compared with the **live Global resource manifest**. Unchanged recordings use URLs pinned to a specific Git commit, not a mutable branch.
-- The 56 changed/new base-language bundles were downloaded directly from the official Global asset CDN and extracted with UnityPy. Their selected MP3s are shipped in `dist/live-audio/`.
+- The 72 changed/new operator-language bundles were downloaded directly from the official Global asset CDN and extracted with UnityPy. Their selected MP3s are shipped in `dist/live-audio/`.
 - Official resource version: `26-10-26-10-03-17_824ce7`.
 - Exact revisions and official CDN base are recorded in `sources.lock.json`.
 
@@ -52,8 +52,8 @@ npm run test:remote
 ```
 
 1. `refresh-sources.py` fetches current Global tables, archive commit/tree/state indexes and the live official resource manifest. It writes `sources.lock.json` and an ignored `.cache/`.
-2. `sync-live-audio.py` extracts changed/new base-operator bundles, preserving each language.
-3. `import-roster.py` includes every obtainable base operator in the Global table, verifies hashes against the live manifest, builds clip pools and downloads missing avatars. Missing source coverage is an explicit report entry; stale changed bundles fail the import.
+2. `sync-live-audio.py` extracts changed/new operator bundles, preserving each language.
+3. `import-roster.py` includes every obtainable operator form in the Global table, verifies hashes against the live manifest, builds clip pools and downloads missing avatars. Missing source coverage is an explicit report entry; stale changed bundles fail the import.
 
 Review `dist/coverage-report.json` before committing. Updating is explicit, not a silent scheduled job. Never reuse a stale timing file: the old Ark-Voice index and prototype audio have been retired.
 
@@ -64,7 +64,7 @@ Review `dist/coverage-report.json` before committing. Updating is explicit, not 
 - Clicking the next attempt skips; clicking the currently playing attempt pauses. Finishing or forfeiting unlocks all five recordings.
 - Selecting an operator submits immediately. Hints reveal rarity, class, race and faction.
 - Language changes abandon the unfinished game without recording a loss.
-- Rarity checkboxes support any combination; applying filters starts a new round without recording a loss. Search ignores accents/punctuation and accepts grouped alternate-form aliases. Results show voice actors for the selected voice pack. Streak badges start at 3 wins, with tiers at 5, 10 and 25.
+- Rarity checkboxes support any combination; applying filters starts a new round without recording a loss. Search ignores accents/punctuation and accepts alternate-form aliases (for example, Lappland alter). Results show voice actors for the selected voice pack. Streak badges start at 3 wins, with tiers at 5, 10 and 25.
 - Statistics, language, volume, rarity selection and recent operators persist locally; custom backgrounds remain in IndexedDB and are not uploaded.
 - Exclude the last 50 operators. Small filtered pools fall back to the least recently seen operator; a one-operator pool can repeat. Recent history persists across reloads.
 
@@ -88,3 +88,5 @@ Arknights characters, audio and artwork © HYPERGRYPH / Yostar. Unofficial, non-
 See [extension boundaries and account roadmap](docs/architecture.md). Round rules, audio playback and local result storage are separate modules. New results use versioned per-round records; existing local statistics remain a baseline. Registration and a backend are not implemented yet.
 
 Class and archetype icons come from ArknightsAssets/ArknightsAssets2, pinned in `sources.lock.json`. Run `python scripts/sync-icons.py` after importing a new roster. Actor names and voice titles come from the pinned Global charword table; collaboration packs use their LINKAGE cast.
+
+Alternate operators are independent entries, including Wiš'adel and Lappland the Decadenza. Amiya's Guard and Medic forms are imported from the class-change table and labeled explicitly. Ambiguous aliases require choosing a specific suggestion.

@@ -17,7 +17,7 @@ def archive(lang):
 async def main():
  from arkprts import network
  repo='ArknightsAssets/ArknightsGamedata';commit=get('https://api.github.com/repos/'+repo+'/commits?path=en/gamedata/excel/character_table.json&per_page=1')[0];sha=commit['sha']
- for table in ['character_table','handbook_info_table','handbook_team_table','char_meta_table','charword_table','uniequip_table']:write(CACHE/(table+'.json'),raw(repo,sha,'en/gamedata/excel/'+table+'.json'))
+ for table in ['character_table','handbook_info_table','handbook_team_table','char_meta_table','charword_table','uniequip_table','char_patch_table']:write(CACHE/(table+'.json'),raw(repo,sha,'en/gamedata/excel/'+table+'.json'))
  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:archives=dict(ex.map(archive,['jp','en','cn','kr']))
  session=network.NetworkSession(default_server='en')
  try:
