@@ -1,5 +1,7 @@
 import {
   matchesName,
+  answerOperators,
+  operatorFamily,
   searchOperators,
   eligibleOperators,
   streakTier,
@@ -228,7 +230,10 @@ function search() {
     closeSearch();
     return;
   }
-  matches = searchOperators(pool(), $("guess").value);
+  matches = searchOperators(
+    answerOperators(data.operators, language, rarities),
+    $("guess").value,
+  );
   $("suggestions").replaceChildren();
   active = -1;
   for (const [i, o] of matches.entries()) {
@@ -313,8 +318,14 @@ document.addEventListener("click", (e) => {
 $("guessForm").onsubmit = (e) => {
   e.preventDefault();
   if (!data || ended) return;
-  const candidates = pool().filter((o) => matchesName(o, $("guess").value, true));
-  const candidate = candidates.length === 1 ? candidates[0] : null;
+  const candidates = answerOperators(data.operators, language, rarities).filter(
+    (o) => matchesName(o, $("guess").value, true),
+  );
+  const candidate =
+    candidates.length &&
+    candidates.every((o) => operatorFamily(o) === operatorFamily(candidates[0]))
+      ? candidates[0]
+      : null;
   if (!candidate) {
     $("message").textContent = "Select an operator from the list.";
     return;

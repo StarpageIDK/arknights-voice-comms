@@ -22,7 +22,14 @@
           </button>
         </div>
         <div id="languages" aria-label="Voice language"></div>
-        <button id="showFilters" type="button" aria-haspopup="dialog" aria-controls="filterDialog">Rarity</button>
+        <button
+          id="showFilters"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="filterDialog"
+        >
+          Rarity
+        </button>
         <span class="mode">∞ Free play</span>
       </header>
       <dialog id="filterDialog" class="filters" aria-labelledby="filterTitle">
@@ -150,10 +157,11 @@
           its own statistics. Switching language starts a new round without
           counting the unfinished round. Click the next locked attempt to skip.
           Click the playing attempt to pause. Names can be typed without accents
-          or punctuation. Rarity filters restrict the pool and search results.
-          The last 50 operators are excluded; small pools rotate the least
-          recently heard operators. Win streaks appear from three consecutive
-          wins.
+          or punctuation. Rarity filters restrict the forms you can hear. Base
+          operators and their alternate forms count as the same answer, but
+          remain separate search entries. The last 50 operators are excluded;
+          small pools rotate the least recently heard operators. Win streaks
+          appear from three consecutive wins.
         </p>
       </dialog>
       <dialog id="statistics">
@@ -172,9 +180,11 @@
           ><button id="resetBackground">Reset background</button>
           <p id="backgroundStatus" role="status"></p>
         </details>
-        <div class="footer-actions"><div id="streak" class="streak" role="status" hidden></div><button id="showStats" aria-label="Stats">Stats</button></div><br /><span
-          id="stats"
-        ></span>
+        <div class="footer-actions">
+          <div id="streak" class="streak" role="status" hidden></div>
+          <button id="showStats" aria-label="Stats">Stats</button>
+        </div>
+        <br /><span id="stats"></span>
         <p id="rosterInfo">Global operators · Alternate forms included</p>
         <p>
           Fan project · Characters & audio © HYPERGRYPH ·

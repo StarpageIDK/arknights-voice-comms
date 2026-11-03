@@ -6,7 +6,7 @@ A fan-made operator guessing game: five attempts, four voice languages, randomiz
 
 ## Current coverage
 
-All **417 obtainable operator forms** in the pinned Global character table are included; alternate forms are separate answers with their own rarity, class and voice packs. There is no handpicked name allowlist.
+All **417 obtainable operator forms** in the pinned Global character table are included; alternate forms are separate entries with their own rarity, class and voice packs. There is no handpicked name allowlist.
 
 | Voice language | Playable operators |
 | --- | ---: |
@@ -90,3 +90,5 @@ See [extension boundaries and account roadmap](docs/architecture.md). Round rule
 Class and archetype icons come from ArknightsAssets/ArknightsAssets2, pinned in `sources.lock.json`. Run `python scripts/sync-icons.py` after importing a new roster. Actor names and voice titles come from the pinned Global charword table; collaboration packs use their LINKAGE cast.
 
 Alternate operators are independent entries, including Wiš'adel and Lappland the Decadenza. Amiya's Guard and Medic forms are imported from the class-change table and labeled explicitly. Ambiguous aliases require choosing a specific suggestion.
+
+Base operators and their alternate/class-change forms share answer credit. Search entries, voice packs and rarity remain distinct. Rarity filters control the question pool; the answer list also includes related forms, even outside those rarities. Results reveal the actual form played.

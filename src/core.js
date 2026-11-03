@@ -43,6 +43,15 @@ export function eligibleOperators(operators, language, rarities) {
     (o) => o.voices[language] && rarities.includes(o.rarity),
   );
 }
+export function operatorFamily(operator) {
+  return operator.baseOperatorId || operator.id;
+}
+export function answerOperators(operators, language, rarities) {
+  const families = new Set(
+    eligibleOperators(operators, language, rarities).map(operatorFamily),
+  );
+  return operators.filter((operator) => families.has(operatorFamily(operator)));
+}
 export function searchOperators(operators, query) {
   const normalized = normalizeName(query);
   if (!normalized) return [];

@@ -1,8 +1,8 @@
-import { chooseOperator, chooseLines } from "./core.js";
+import { chooseOperator, chooseLines, operatorFamily } from "./core.js";
 
 export const classicMode = Object.freeze({
   id: "classic",
-  rulesVersion: 2,
+  rulesVersion: 3,
   attempts: 5,
   hints: 3,
   chooseOperator,
@@ -47,7 +47,8 @@ export function transitionRound(round, action) {
   }
   if (!["guess", "skip", "giveup"].includes(action.type)) return round;
   const won =
-    action.type === "guess" && action.operator.id === round.operator.id;
+    action.type === "guess" &&
+    operatorFamily(action.operator) === operatorFamily(round.operator);
   const label =
     action.type === "guess"
       ? `${action.operator.name} · ${won ? "Correct" : "Incorrect"}`
