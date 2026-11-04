@@ -4,6 +4,8 @@
 
 A fan-made operator guessing game: five attempts, four voice languages, randomized voice lines and browser-local statistics.
 
+Current release: **1.2.0** — [stability fixes, usability changes and verification notes](docs/release-1.2.md).
+
 ## Current coverage
 
 All **417 obtainable operator forms** in the pinned Global character table are included; alternate forms are separate entries with their own rarity, class and voice packs. There is no handpicked name allowlist.

@@ -74,12 +74,16 @@
           <button id="submit">Submit</button
           ><button id="skip" type="button">Skip →</button>
         </form>
+        <button id="retryData" type="button" hidden>
+          Retry loading operators
+        </button>
         <input
           type="range"
           id="progress"
           min="0"
           max="1000"
           value="0"
+          disabled
           aria-label="Seek audio"
         />
         <div class="playback">

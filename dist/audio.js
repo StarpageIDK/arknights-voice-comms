@@ -56,6 +56,11 @@ export function createAudioPlayer(
         finish(Error("Audio timed out"));
       }, timeout);
       cancel = () => {
+        if (settled) return;
+        controller.abort();
+        const clip = clips.get(nextPath);
+        clips.delete(nextPath);
+        clip?.then((url) => urls.revokeObjectURL(url)).catch(() => {});
         finish(null, false);
       };
       if (!clips.has(nextPath)) {

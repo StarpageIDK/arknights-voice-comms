@@ -53,12 +53,20 @@ const player = createAudioPlayer(audio, {
   onReady(duration) {
     $("duration").textContent = timeLabel(duration);
     $("progress").disabled = false;
+    $("audioStatus").textContent = "Ready · " + clipLabel();
   },
   onError() {
+    stop();
     $("audioStatus").textContent =
       "Unable to play audio. Please press play to retry.";
   },
 });
+function clipLabel() {
+  return (
+    operator?.clips[language]?.find((c) => c.id === roundLines[selected])
+      ?.label || `Voice line ${selected + 1}`
+  );
+}
 function stop() {
   player.stop();
   $("play").textContent = "▶";
@@ -70,6 +78,8 @@ function loadClip() {
   if (loaded !== path) {
     stop();
     loaded = path;
+    seeking = false;
+    $("audioStatus").textContent = "Loading · " + clipLabel();
     $("progress").disabled = true;
     $("progress").value = 0;
     $("elapsed").textContent = "0:00";
@@ -83,7 +93,7 @@ async function play() {
   if (await player.play(operator.voices[language][roundLines[selected]])) {
     $("play").textContent = "Ⅱ";
     $("play").setAttribute("aria-label", "Pause voice line");
-    $("audioStatus").textContent = `Playing voice line ${selected + 1}`;
+    $("audioStatus").textContent = `Playing · ${clipLabel()}`;
   }
 }
 function syncRound() {
@@ -147,7 +157,8 @@ function render() {
     "aria-label",
     `${stats.streak} consecutive wins in ${language}`,
   );
-  $("filterCount").textContent = `${pool().length} operators available`;
+  if (!$("filterDialog").open)
+    $("filterCount").textContent = `${pool().length} operators available`;
   document.querySelectorAll("[data-lang]").forEach((b) => {
     b.setAttribute("aria-pressed", String(b.dataset.lang === language));
     b.disabled = !pool(b.dataset.lang).length;
@@ -156,6 +167,7 @@ function render() {
 function next(autoplay = false) {
   stop();
   player.clear();
+  recent = store.recent();
   round = createRound(pool(), language, recent, {
     rarities: [...rarities],
     contentVersion: data.contentVersion,
@@ -167,6 +179,7 @@ function next(autoplay = false) {
   selected = 0;
   loaded = "";
   for (const id of ["message", "history", "hints"]) $(id).replaceChildren();
+  $("message").className = "";
   $("guess").value = "";
   closeSearch();
   $("audioStatus").textContent = "Attempt 1 always starts with “Arknights”.";
@@ -214,6 +227,7 @@ function advance() {
   act({ type: "skip" });
 }
 function closeSearch() {
+  matches = [];
   $("suggestions").hidden = true;
   $("guess").setAttribute("aria-expanded", "false");
   $("guess").removeAttribute("aria-activedescendant");
@@ -294,6 +308,7 @@ $("guess").onkeydown = (e) => {
   if (["ArrowDown", "ArrowUp"].includes(e.key)) {
     e.preventDefault();
     if ($("suggestions").hidden) search();
+    if ($("suggestions").hidden) return;
     if (!matches.length) return;
     active = Math.max(
       0,
@@ -339,7 +354,10 @@ $("play").onclick = () => (audio.paused ? play() : stop());
 audio.onended = stop;
 $("skip").onclick = () => advance();
 $("giveup").onclick = () => act({ type: "giveup" });
-$("next").onclick = () => next(true);
+$("next").onclick = () => {
+  next(true);
+  $("guess").focus();
+};
 $("hint").onclick = () => {
   if (!round || ended || hintCount >= round.maxHints) return;
   const groups = [
@@ -468,20 +486,35 @@ $("progress").addEventListener("pointerup", () => {
 $("progress").addEventListener("pointercancel", () => {
   seeking = false;
 });
-fetch("game-data.json")
-  .then((r) => {
-    if (!r.ok) throw Error("Game data unavailable");
-    return r.json();
-  })
-  .then((d) => {
-    data = d;
-    $("rosterInfo").textContent =
-      `${data.operators.length} Global operators · Alternate forms included`;
-    next();
-  })
-  .catch(() => {
-    $("message").textContent = "Unable to load game data. Please reload.";
-  });
+async function loadGameData() {
+  $("retryData").hidden = true;
+  $("message").textContent = "Loading operators…";
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
+  return fetch("game-data.json", { signal: controller.signal })
+    .then((r) => {
+      if (!r.ok) throw Error("Game data unavailable");
+      return r.json();
+    })
+    .then((d) => {
+      data = d;
+      if (!pool().length) {
+        rarities = [1, 2, 3, 4, 5, 6];
+        save("voiceprint-rarities", rarities);
+      }
+      $("rosterInfo").textContent =
+        `${data.operators.length} Global operators · Alternate forms included`;
+      next();
+    })
+    .catch(() => {
+      $("message").textContent =
+        "Unable to load operators. Check your connection and retry.";
+      $("retryData").hidden = false;
+    })
+    .finally(() => clearTimeout(timer));
+}
+$("retryData").onclick = loadGameData;
+loadGameData();
 
 let backgroundDB;
 function backgroundUnavailable() {
@@ -586,6 +619,12 @@ window.addEventListener("storage", () => {
   allStats = store.statistics();
   stats = allStats[language];
   if (data) render();
+  if ($("statistics").open) {
+    const selectedLanguage =
+      $("statsLanguages").querySelector('[aria-pressed="true"]')?.textContent ||
+      language;
+    showStatistics(selectedLanguage);
+  }
 });
 
 for (const value of [1, 2, 3, 4, 5, 6]) {
@@ -598,11 +637,21 @@ for (const value of [1, 2, 3, 4, 5, 6]) {
   label.append(checkbox, document.createTextNode(`${value}★`));
   $("rarities").append(label);
 }
+function previewRarities() {
+  if (!data) return;
+  const stars = [...$("rarities").querySelectorAll("input:checked")].map((c) =>
+    Number(c.value),
+  );
+  $("filterCount").textContent =
+    `${pool(language, stars).length} operators available`;
+}
+$("rarities").addEventListener("change", previewRarities);
 $("showFilters").onclick = () => {
   for (const checkbox of $("rarities").querySelectorAll("input"))
     checkbox.checked = rarities.includes(Number(checkbox.value));
   $("filterStatus").textContent =
     "Choose any combination. Applying changes starts a new round.";
+  previewRarities();
   $("filterDialog").showModal();
 };
 $("applyFilters").onclick = () => {

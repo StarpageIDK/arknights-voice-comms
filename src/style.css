@@ -1555,3 +1555,11 @@ footer #showStats {
 .footer-actions .streak.legend { filter: drop-shadow(0 0 12px #df9dffbb); animation: flame-flicker 1.5s ease-in-out infinite alternate; }
 @keyframes flame-flicker { from { opacity: 0.8; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .footer-actions .streak { animation: none; } }
+
+/* Keep keyboard focus visible and long operator names inside narrow cards. */
+button:focus-visible, summary:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.suggestion-details, .result-label, #message { overflow-wrap: anywhere; }
+dialog { max-height: 90dvh; overflow-y: auto; }

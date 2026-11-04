@@ -25,6 +25,7 @@ export function validStats(s) {
 export function createStorage(getStorage = () => localStorage) {
   const memory = new Map();
   function read(key, fallback) {
+    if (memory.has(key)) return memory.get(key);
     try {
       return (
         JSON.parse(getStorage().getItem(key)) ?? memory.get(key) ?? fallback
@@ -34,11 +35,12 @@ export function createStorage(getStorage = () => localStorage) {
     }
   }
   function save(key, value) {
-    memory.set(key, value);
     try {
       getStorage().setItem(key, JSON.stringify(value));
+      memory.delete(key);
       return true;
     } catch {
+      memory.set(key, value);
       return false;
     }
   }

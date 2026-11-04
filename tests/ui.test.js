@@ -76,10 +76,13 @@ async function setup(saved = {}, options = {}) {
   w.Math.random = () => 0.6;
   w.URL.createObjectURL = () => "blob:audio";
   w.URL.revokeObjectURL = () => {};
-  Object.defineProperty(w, "indexedDB", { get() {
-    if (options.blockStorage) throw new w.DOMException("Storage blocked", "SecurityError");
-    return { open: () => ({}) };
-  }});
+  Object.defineProperty(w, "indexedDB", {
+    get() {
+      if (options.blockStorage)
+        throw new w.DOMException("Storage blocked", "SecurityError");
+      return { open: () => ({}) };
+    },
+  });
   w.HTMLDialogElement.prototype.showModal = function () {
     this.open = true;
   };
@@ -109,10 +112,14 @@ async function setup(saved = {}, options = {}) {
       this.playCount++;
     }
   };
-  w.fetch = async (url) =>
-    String(url).endsWith("game-data.json")
-      ? { ok: true, json: async () => ({ operators }) }
-      : { ok: true, blob: async () => new w.Blob(["audio"]) };
+  let dataRequests = 0;
+  w.fetch = async (url) => {
+    if (String(url).endsWith("game-data.json")) {
+      if (options.failFirstData && ++dataRequests === 1) throw Error("offline");
+      return { ok: true, json: async () => ({ operators }) };
+    }
+    return { ok: true, blob: async () => new w.Blob(["audio"]) };
+  };
   for (const [key, value] of Object.entries(saved))
     w.localStorage.setItem(key, JSON.stringify(value));
   w.eval(source);
@@ -281,9 +288,8 @@ test("streak starts at three wins and disappears after a loss", async () => {
   x.w.close();
 });
 
-
 test("rarity modal works when browser blocks IndexedDB", async () => {
-  const x = await setup({}, {blockStorage:true});
+  const x = await setup({}, { blockStorage: true });
   x.$("showFilters").click();
   assert.equal(x.$("filterDialog").open, true);
   assert.equal(x.$("rarities").querySelectorAll("input").length, 6);
@@ -293,19 +299,118 @@ test("rarity modal works when browser blocks IndexedDB", async () => {
   assert.equal(x.$("rarities").querySelector('[value="1"]').checked, true);
   x.$("applyFilters").click();
   assert.equal(x.$("filterDialog").open, false);
-  await flush(); x.w.close();
+  await flush();
+  x.w.close();
 });
 
-
 test("ambiguous alter aliases do not silently submit the first matching form", async () => {
-  const x=await setup();
-  x.$("guess").value="shared alter";
-  x.$("guessForm").dispatchEvent(new x.w.Event("submit",{cancelable:true}));
-  assert.match(x.$("counter").textContent,/1 \/ 5/);
-  assert.match(x.$("message").textContent,/Select an operator/);
+  const x = await setup();
+  x.$("guess").value = "shared alter";
+  x.$("guessForm").dispatchEvent(new x.w.Event("submit", { cancelable: true }));
+  assert.match(x.$("counter").textContent, /1 \/ 5/);
+  assert.match(x.$("message").textContent, /Select an operator/);
   x.$("guess").dispatchEvent(new x.w.Event("input"));
-  assert.equal(x.$("suggestions").querySelectorAll(".suggestion").length,2);
-  x.click(".suggestion"); await flush();
-  assert.match(x.$("counter").textContent,/2 \/ 5/);
+  assert.equal(x.$("suggestions").querySelectorAll(".suggestion").length, 2);
+  x.click(".suggestion");
+  await flush();
+  assert.match(x.$("counter").textContent, /2 \/ 5/);
+  x.w.close();
+});
+
+test("clearing a search cannot select a stale invisible result with arrow keys", async () => {
+  const x = await setup();
+  x.$("guess").value = "Tex";
+  x.$("guess").dispatchEvent(new x.w.Event("input"));
+  x.$("guess").value = "";
+  x.$("guess").dispatchEvent(new x.w.Event("input"));
+  for (const key of ["ArrowDown", "Enter"])
+    x.$("guess").dispatchEvent(
+      new x.w.KeyboardEvent("keydown", { key, cancelable: true }),
+    );
+  assert.equal(x.$("suggestions").hidden, true);
+  assert.equal(x.$("guess").hasAttribute("aria-activedescendant"), false);
+  assert.match(x.$("counter").textContent, /1 \/ 5/);
+  x.w.close();
+});
+
+test("new rounds use recent operators written by another tab", async () => {
+  const x = await setup();
+  x.$("giveup").click();
+  x.w.localStorage.setItem("voiceprint-recent", JSON.stringify(["0", "1"]));
+  x.$("next").click();
+  x.$("giveup").click();
+  assert.match(x.$("message").textContent, /Exusiai/);
+  assert.deepEqual(JSON.parse(x.w.localStorage.getItem("voiceprint-recent")), [
+    "0",
+    "1",
+    "2",
+  ]);
+  await flush();
+  x.w.close();
+});
+
+test("saved rarity filters with no remaining operators recover on startup", async () => {
+  const x = await setup({ "voiceprint-rarities": [1] });
+  assert.match(x.$("counter").textContent, /1 \/ 5/);
+  assert.equal(x.$("retryData").hidden, true);
+  assert.deepEqual(
+    JSON.parse(x.w.localStorage.getItem("voiceprint-rarities")),
+    [1, 2, 3, 4, 5, 6],
+  );
+  x.w.close();
+});
+
+test("new rounds clear result styling and focus the answer input", async () => {
+  const x = await setup();
+  x.$("giveup").click();
+  x.$("next").click();
+  assert.equal(x.$("message").className, "");
+  assert.equal(x.w.document.activeElement.id, "guess");
+  await flush();
+  x.w.close();
+});
+
+test("failed roster load can be retried without reloading the page", async () => {
+  const x = await setup({}, { failFirstData: true });
+  assert.equal(x.$("retryData").hidden, false);
+  assert.match(x.$("message").textContent, /Check your connection/);
+  x.$("retryData").click();
+  await flush();
+  assert.equal(x.$("retryData").hidden, true);
+  assert.match(x.$("counter").textContent, /1 \/ 5/);
+  assert.equal(x.$("message").textContent, "");
+  x.w.close();
+});
+
+test("rarity count previews unsaved choices and cancel restores applied filters", async () => {
+  const x = await setup();
+  x.$("showFilters").click();
+  const five = x.$("rarities").querySelector('[value="5"]');
+  five.checked = false;
+  five.dispatchEvent(new x.w.Event("change", { bubbles: true }));
+  assert.match(x.$("filterCount").textContent, /^0 operators/);
+  x.$("filterDialog").querySelector(".close").click();
+  x.$("showFilters").click();
+  assert.equal(five.checked, true);
+  assert.match(x.$("filterCount").textContent, /^3 operators/);
+  x.w.close();
+});
+
+test("an open statistics dialog refreshes results from another tab", async () => {
+  const x = await setup();
+  x.$("showStats").click();
+  const store = storage.createStorage(() => x.w.localStorage);
+  store.append({
+    schemaVersion: 1,
+    roundId: "other-tab",
+    modeId: "classic",
+    language: "JP",
+    won: true,
+    attempt: 0,
+    completedAt: new Date().toISOString(),
+  });
+  x.w.dispatchEvent(new x.w.StorageEvent("storage"));
+  assert.equal(x.$("statDetails").querySelector("b").textContent, "1");
+  assert.match(x.$("stats").textContent, /1 PLAYED/);
   x.w.close();
 });

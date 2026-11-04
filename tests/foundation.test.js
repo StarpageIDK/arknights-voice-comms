@@ -148,3 +148,41 @@ test("round actions enforce completion and support alternate rule sets", () => {
   assert.equal(roundResult(round).verified, false);
   assert.equal(transitionRound(round, { type: "giveup" }), round);
 });
+
+test("failed settings writes override old persisted values for this session", () => {
+  const shared = localStorageMock();
+  shared.setItem("voiceprint-recent", JSON.stringify(["old"]));
+  const originalSet = shared.setItem;
+  shared.setItem = () => {
+    throw Error("quota");
+  };
+  const store = createStorage(() => shared);
+  store.save("voiceprint-recent", ["new"]);
+  assert.deepEqual(store.recent(), ["new"]);
+  shared.setItem = originalSet;
+  store.save("voiceprint-recent", ["saved"]);
+  shared.setItem("voiceprint-recent", JSON.stringify(["other-tab"]));
+  assert.deepEqual(store.recent(), ["other-tab"]);
+});
+
+test("switching clips aborts the old request and allows it to be retried", async () => {
+  const requests = [];
+  const { player } = audioFixture((path, { signal }) => {
+    requests.push({ path, signal });
+    if (requests.length === 1)
+      return new Promise((resolve, reject) => {
+        signal.addEventListener("abort", () => reject(Error("aborted")));
+      });
+    return Promise.resolve(response);
+  });
+  const first = player.load("a");
+  assert.equal(await player.load("b"), true);
+  assert.equal(await first, false);
+  assert.equal(requests[0].signal.aborted, true);
+  assert.equal(await player.play("a"), true);
+  assert.deepEqual(
+    requests.map((r) => r.path),
+    ["a", "b", "a"],
+  );
+  player.clear();
+});
